@@ -1,0 +1,12 @@
+<p>form-record-try works!</p>
+<button (click)="check()">check form value(print in console)</button>
+<br>
+<form [formGroup]="addresses">
+    <div *ngFor="let data of addresses.controls | keyvalue">
+        {{ data.key | json}}
+        <input type="checkbox" [formControlName]="data.key" name="checkbox">
+    </div>
+</form>
+<br>
+<input type="text" #inputRef/>
+<button (click)="addControl(inputRef.value)">add Control to form record</button>
