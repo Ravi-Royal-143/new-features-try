@@ -1,21 +1,27 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { FormRecordTryComponent } from './form-record-try/form-record-try.component';
-import { MainFormComponent } from './main-form/main-form.component';
 
 const routes: Routes = [
   {
+    path: 'routes',
+    loadComponent: () => import('./route-link/route-link.component').then(c => c.RouteLinkComponent)
+  },
+  {
     path: 'form-record',
-    component: FormRecordTryComponent
+    loadComponent: () => import('./form-record-try/form-record-try.component').then(c => c.FormRecordTryComponent)
   },
   {
     path: 'form-group-directive',
-    component: MainFormComponent
+    loadComponent: () => import('./main-form/main-form.component').then(c => c.MainFormComponent)
+  },
+  {
+    path: 'rxjs',
+    loadChildren: () => import('./rxjs/rxjs.routes').then(c => c.RXJS_ROUTES)
   },
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'form-group-directive'
+    redirectTo: 'rxjs'
   }
 ];
 
