@@ -19,9 +19,23 @@ const routes: Routes = [
     loadChildren: () => import('./rxjs/rxjs.routes').then(c => c.RXJS_ROUTES)
   },
   {
+    path: 'material',
+    children: [
+      {
+        path: 'mat-tree',
+        loadComponent: () => import('./mat-tree/mat-tree.component').then(c => c.MatTreeComponent)
+      },
+      {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'mat-tree'
+      },
+    ]
+  },
+  {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'rxjs'
+    redirectTo: 'material'
   }
 ];
 
