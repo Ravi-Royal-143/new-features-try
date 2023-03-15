@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormRecordTryComponent } from './form-record-try/form-record-try.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import { FormRecordTryComponent } from './form-record-try/form-record-try.compon
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormRecordTryComponent
+    FormRecordTryComponent,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

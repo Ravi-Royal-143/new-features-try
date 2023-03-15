@@ -19,9 +19,13 @@ const routes: Routes = [
     loadChildren: () => import('./rxjs/rxjs.routes').then(c => c.RXJS_ROUTES)
   },
   {
+    path: 'material',
+    loadChildren: () => import('./material/material.routing').then(c => c.MATERIALS_ROUTES)
+  },
+  {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'rxjs'
+    redirectTo: 'material'
   }
 ];
 
