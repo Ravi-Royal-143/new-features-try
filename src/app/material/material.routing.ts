@@ -16,6 +16,10 @@ export const MATERIALS_ROUTES: Routes = [{
             loadChildren: () => import('./material-tree/mat-tree-net-copied/mat-tree-net-copied.module').then(c => c.MatTreeNetCopiedModule)
         },
         {
+            path: 'mat-tree-parent-mine-custom',
+            loadComponent: () => import('./material-tree/mat-tree-parent-mine-custom/mat-tree-parent-mine-custom.component').then(c => c.MatTreeParentMineCustomComponent)
+        },
+        {
             path: '',
             pathMatch: 'full',
             loadComponent: () => import('./material.component').then(c => c.MaterialComponent)
