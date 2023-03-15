@@ -22,13 +22,21 @@ const routes: Routes = [
     path: 'material',
     children: [
       {
-        path: 'mat-tree',
-        loadComponent: () => import('./mat-tree/mat-tree.component').then(c => c.MatTreeComponent)
+        path: 'mat-tree-mine',
+        loadComponent: () => import('./material-tree/mat-tree/mat-tree.component').then(c => c.MatTreeComponent)
+      },
+      {
+        path: 'mat-tree-net',
+        loadComponent: () => import('./material-tree/tree-from-net/tree-from-net.component').then(c => c.TreeFromNetComponent)
+      },
+      {
+        path: 'mat-tree-net-copied',
+        loadChildren: () => import('./material-tree/mat-tree-net-copied/mat-tree-net-copied.module').then(c => c.MatTreeNetCopiedModule)
       },
       {
         path: '',
         pathMatch: 'full',
-        redirectTo: 'mat-tree'
+        redirectTo: 'mat-tree-net'
       },
     ]
   },

@@ -1,0 +1,45 @@
+<!-- <app-add-node (addedNode)="addNode($event)" [isTop]="true"></app-add-node> -->
+<div class="p-5">
+    <a href="https://stackblitz.com/github/vtsiris/material-tree-tutorial?file=src%2Fapp%2Fapp.component.ts,src%2Fapp%2Fapp.component.html"
+        target="_blank">stackblitz Link</a>
+</div>
+<div>
+    <mat-tree [dataSource]="nestedDataSource" [treeControl]="nestedTreeControl" class="example-tree mat-tree-position">
+        <mat-tree-node *matTreeNodeDef="let node">
+            <li class="mat-tree-node">
+                <button mat-icon-button disabled></button>
+                {{node.Name}}
+                <ng-template *ngTemplateOutlet="editContainer;context: {$implicit: node}"></ng-template>
+            </li>
+        </mat-tree-node>
+
+        <mat-nested-tree-node *matTreeNodeDef="let node; when: hasNestedChild">
+            <li>
+                <div class="mat-tree-node">
+                    <button mat-icon-button matTreeNodeToggle [attr.aria-label]="'toggle ' + node.Name">
+                        <mat-icon class="mat-icon-rtl-mirror">
+                            {{nestedTreeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+                        </mat-icon>
+                    </button>
+                    {{node.Name}}
+                    <ng-template *ngTemplateOutlet="editContainer;context: {$implicit: node}"></ng-template>
+                </div>
+                <ul [class.example-tree-invisible]="!nestedTreeControl.isExpanded(node)">
+                    <ng-container matTreeNodeOutlet></ng-container>
+                </ul>
+            </li>
+        </mat-nested-tree-node>
+    </mat-tree>
+
+    <ng-template #editContainer let-nodeData>
+        <ng-container *ngIf="nodeData?.edit; else showContent">
+            <input *ngIf="nodeData?.edit" [(ngModel)]="nodeData.name">
+        </ng-container>
+        <ng-template #showContent>
+            <span>
+                {{nodeData.name}}
+                <mat-icon (click)="deleteNode(nodeData)">delete</mat-icon>
+            </span>
+        </ng-template>
+    </ng-template>
+</div>
