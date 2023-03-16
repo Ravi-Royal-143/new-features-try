@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { MatTreeModule, MatTreeNestedDataSource } from '@angular/material/tree';
-import { MatIconModule } from '@angular/material/icon';
-import { FoodNode, TREE_DATA } from './mat.tree';
 import { NestedTreeControl } from '@angular/cdk/tree';
+import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTreeModule, MatTreeNestedDataSource } from '@angular/material/tree';
+import { FoodNode, TREE_DATA } from './mat.tree';
 
 @Component({
   selector: 'app-mat-tree-parent-mine-custom',
@@ -29,14 +29,14 @@ export class MatTreeParentMineCustomComponent {
     this.dataSource.data = data
   }
 
-  findParent(nodes: FoodNode[], searchId: string, parentNode: FoodNode): FoodNode | null {
-    for(let node of nodes) {
-      if(node.id === searchId) {
-        return parentNode
+  findParent(nodes: FoodNode[], searchId: string, parentNode: FoodNode | FoodNode[]): FoodNode[] | null | undefined {
+    for (let node of nodes) {
+      if (node.id === searchId) {
+        return Array.isArray(parentNode) ? parentNode : parentNode.children
       }
-      if(node.children?.length) {
+      if (node.children?.length) {
         const parentNodeDetail = this.findParent(node.children, searchId, node)
-        if(parentNodeDetail) {
+        if (parentNodeDetail) {
           return parentNodeDetail
         }
       }
@@ -44,33 +44,44 @@ export class MatTreeParentMineCustomComponent {
     return null
   }
 
-  createChildNode(node: FoodNode) {
+  createNodeToChildren(nodeArr: FoodNode[] | undefined | null, node: FoodNode | null = null) {
     const newData = {
-      name: 'string',
+      name: `string ${Math.random()}`,
       id: Math.random().toString()
     }
-    if(node.children) {
-      node.children.push(newData)
+    if (nodeArr) {
+      nodeArr.push(newData)
     } else {
-      node.children = [newData]
+      nodeArr = [newData]
     }
     this.refreshTreeData()
-    this.treeControl.expand(node)
+    if (node) {
+      this.treeControl.expand(node)
+    }
+  }
+
+  createChildNode(node: FoodNode) {
+    if (!node.children) {
+      node.children = []
+    }
+    this.createNodeToChildren(node.children, node)
   }
 
   createSibilingNode(node: FoodNode) {
     const treeData = this.dataSource.data
-    const parentData = this.findParent(treeData, node.id, treeData[0])
-    if(parentData) {
-      this.createChildNode(parentData)
-    } 
+    const parentData = this.findParent(treeData, node.id, treeData)
+    if (parentData) {
+      this.createNodeToChildren(parentData)
+    }
   }
 
   deleteNode(node: FoodNode) {
-    const treeData = this.dataSource.data
-    const parentData = this.findParent(treeData, node.id, treeData[0])
-    if(parentData) {
-      parentData.children = parentData.children?.filter((data) => data.id !== node.id)
+    let treeData = this.dataSource.data
+    let parentData = this.findParent(treeData, node.id, treeData)
+    if (parentData) {
+      const indexPos = parentData.findIndex((data) => data.id === node.id)
+      parentData.splice(indexPos, 1)
+      // parentData = [...parentData?.filter((data) => data.id !== node.id)] // not works because we need to change the original reference of array
     }
     this.refreshTreeData()
   }

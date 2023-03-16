@@ -19,6 +19,9 @@
             </mat-icon>
           </button>
           {{node.name}}
+          <i class="material-icons delete-btn" (click)="deleteNode(node)">delete_outline</i>
+          <i class="material-icons delete-btn" (click)="createSibilingNode(node)">format_line_spacing</i>
+          <i class="material-icons delete-btn" (click)="createChildNode(node)">format_indent_increase</i>
         </div>
         <!-- There is inline padding applied to this div using styles.
             This padding value depends on the mat-icon-button width.  -->
