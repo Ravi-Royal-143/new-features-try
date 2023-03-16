@@ -25,7 +25,7 @@
         </div>
         <!-- There is inline padding applied to this div using styles.
             This padding value depends on the mat-icon-button width.  -->
-        <div [class.example-tree-invisible]="!treeControl.isExpanded(node)"
+        <div [class.example-tree-invisible]="!treeControl.isExpanded(node)" class="expansion-container"
             role="group">
           <ng-container matTreeNodeOutlet></ng-container>
       </div>
