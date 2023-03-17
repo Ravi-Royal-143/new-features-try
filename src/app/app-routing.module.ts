@@ -7,13 +7,10 @@ const routes: Routes = [
     loadComponent: () => import('./route-link/route-link.component').then(c => c.RouteLinkComponent)
   },
   {
-    path: 'form-record',
-    loadComponent: () => import('./form-record-try/form-record-try.component').then(c => c.FormRecordTryComponent)
+    path: 'forms',
+    loadChildren: () => import('./forms/forms.route').then(c => c.FORMS_ROUTES)
   },
-  {
-    path: 'form-group-directive',
-    loadComponent: () => import('./main-form/main-form.component').then(c => c.MainFormComponent)
-  },
+ 
   {
     path: 'rxjs',
     loadChildren: () => import('./rxjs/rxjs.routes').then(c => c.RXJS_ROUTES)
