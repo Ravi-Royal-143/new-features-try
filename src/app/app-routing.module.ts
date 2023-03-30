@@ -24,6 +24,10 @@ const routes: Routes = [
     loadChildren: () => import('./content-projection/content-projection.route').then(c => c.CONTENT_PROJECTION_ROUTES)
   },
   {
+    path: 'routing-query-solution',
+    loadChildren: () => import('./routing-details/routing-details.route').then(c => c.ROUTING_SECTION)
+  },
+  {
     path: '',
     pathMatch: 'full',
     redirectTo: 'material'
