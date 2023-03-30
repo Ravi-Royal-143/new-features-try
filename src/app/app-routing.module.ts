@@ -30,7 +30,11 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'material'
+    redirectTo: 'routes'
+  },
+  {
+    path: '**',
+    redirectTo: 'routes'
   }
 ];
 
