@@ -15,7 +15,7 @@ export class UsingPipeComponent {
   arrayDatas: LabelValue[] = []
   insideFun = 0;
   constructor() {
-    this.arrayDatas = Array.from({ length: 100 }, (_, i) => this.objCreation(i))
+    this.arrayDatas = Array.from({ length: 500 }, (_, i) => this.objCreation(i))
   }
 
   getLabelLocalFn(data: LabelValue) {
