@@ -1,0 +1,18 @@
+<p>using-pipe works!</p>
+
+It seems the pipe template takes less time called but may be there is more memory consumption (Need to check)
+
+See the console to get how many times pipe had been called
+
+Number of times called - {{this.insideFun}}
+<button (click)="test()" >Click to see the number of times called function</button>
+<br>
+From Local Funtion: 
+<span *ngFor="let data of arrayDatas">
+    {{getLabelLocalFn(data)}}
+</span>
+<br>
+From Pipe:
+<span *ngFor="let data of arrayDatas">
+    {{getLabel | getLabelPipe : data}}
+</span>

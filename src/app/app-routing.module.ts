@@ -28,6 +28,10 @@ const routes: Routes = [
     loadChildren: () => import('./routing-details/routing-details.route').then(c => c.ROUTING_SECTION)
   },
   {
+    path: 'performance',
+    loadChildren: () => import('./performance/performance.route').then(c => c.PERFORMANCE_ROUTES)
+  },
+  {
     path: '',
     pathMatch: 'full',
     redirectTo: 'routes'
