@@ -3,3 +3,14 @@
 {{signal()}}
 <br />
 {{obsSignal$ | async}}
+
+@if (signal() % 2 == 0) {
+  <p>Signal is even</p>
+} 
+@else {
+  <p>Signal is odd</p>
+}
+
+@for (item of items; track $index) {
+    <p>{{item}}</p>
+}
