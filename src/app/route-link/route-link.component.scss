@@ -1,8 +1,8 @@
-a {
-    display: block;
-    list-style-type: decimal;
+.numbered-list {
+    counter-reset: link-counter;
 }
 
-div {
-    list-style-type: circle;
+.numbered-list a::before {
+    counter-increment: link-counter;
+    content: counter(link-counter) " => ";
 }
