@@ -33,7 +33,7 @@ const routes: Routes = [
   },
   {
     path: 'signal',
-    loadComponent: () => import('./signal/signal.component').then(c => c.SignalComponent)
+    loadChildren: () => import('./signal/signal.route').then(c => c.SIGNAL_ROUTES)
   },
   {
     path: '',
