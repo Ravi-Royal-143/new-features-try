@@ -32,6 +32,10 @@ const routes: Routes = [
     loadChildren: () => import('./performance/performance.route').then(c => c.PERFORMANCE_ROUTES)
   },
   {
+    path: 'signal',
+    loadComponent: () => import('./signal/signal.component').then(c => c.SignalComponent)
+  },
+  {
     path: '',
     pathMatch: 'full',
     redirectTo: 'routes'
