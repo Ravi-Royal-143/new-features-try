@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClient, HttpClientModule } from '@angular/common/http'
+import { HttpClient, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
 import { concatMap, exhaustMap, filter, interval, mergeMap, Observable, Subscription, switchMap, take } from 'rxjs';
 
 interface PostRes {
@@ -13,14 +13,18 @@ interface PostRes {
 @Component({
   selector: 'app-maps',
   standalone: true,
-  imports: [CommonModule, HttpClientModule],
+  imports: [CommonModule],
+    // TODO: `HttpClientModule` should not be imported into a component directly.
+    // Please refactor the code to add `provideHttpClient()` call to the provider list in the
+    // application bootstrap logic and remove the `HttpClientModule` import from this component.
+    // HttpClientModule],
   templateUrl: './maps.component.html',
   styleUrls: ['./maps.component.scss']
 })
 export class MapsComponent {
 
   tableDatas: PostRes[] = []
-  sub$:Subscription;
+  sub$: Subscription;
   details = {
     title: '',
     body: ''
@@ -33,7 +37,7 @@ export class MapsComponent {
   }
 
   fetchDetails(mapType = mergeMap) {
-    if(this.sub$ && !this.sub$.closed) {
+    if (this.sub$ && !this.sub$.closed) {
       this.sub$.unsubscribe()
     }
     this.tableDatas = []
@@ -80,7 +84,7 @@ export class MapsComponent {
     this.details = {
       title: 'Exhaust Map',
       body: 'all the upcoming values will be ignored till the current subscription ends, if the current sub ends then next one which is in queue will be executed(inbetween values will be ignored)'
-    } 
+    }
     this.fetchDetails(exhaustMap)
   }
 }
