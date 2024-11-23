@@ -12,11 +12,10 @@ import { TreeDataService } from './tree-data.service';
 import { TreeFunctionService } from './tree-function.service';
 
 @Component({
-  selector: 'app-tree-from-net',
-  standalone: true,
-  imports: [CommonModule, MatTreeModule, MatIconModule, MatButtonModule, FormsModule],
-  templateUrl: './tree-from-net.component.html',
-  styleUrls: ['./tree-from-net.component.scss']
+    selector: 'app-tree-from-net',
+    imports: [CommonModule, MatTreeModule, MatIconModule, MatButtonModule, FormsModule],
+    templateUrl: './tree-from-net.component.html',
+    styleUrls: ['./tree-from-net.component.scss']
 })
 export class TreeFromNetComponent {
   nestedTreeControl: NestedTreeControl<TreeData>;

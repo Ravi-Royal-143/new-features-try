@@ -7,11 +7,10 @@ import { MatTreeModule, MatTreeNestedDataSource } from '@angular/material/tree';
 import { FoodNode, TREE_DATA } from './mat.tree';
 
 @Component({
-  selector: 'app-mat-tree-parent-mine-custom',
-  standalone: true,
-  imports: [CommonModule, MatTreeModule, MatIconModule, MatButtonModule],
-  templateUrl: './mat-tree-parent-mine-custom.component.html',
-  styleUrls: ['./mat-tree-parent-mine-custom.component.scss']
+    selector: 'app-mat-tree-parent-mine-custom',
+    imports: [CommonModule, MatTreeModule, MatIconModule, MatButtonModule],
+    templateUrl: './mat-tree-parent-mine-custom.component.html',
+    styleUrls: ['./mat-tree-parent-mine-custom.component.scss']
 })
 export class MatTreeParentMineCustomComponent {
   treeControl = new NestedTreeControl<FoodNode>(node => node.children);

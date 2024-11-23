@@ -5,11 +5,10 @@ import { SubReusableFormComponent } from './sub-reusable-form/sub-reusable-form.
 import { SubFormWithControlInsideComponent } from './sub-form-with-control-inside/sub-form-with-control-inside.component';
 
 @Component({
-  selector: 'app-main-form',
-  standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, SubReusableFormComponent, SubFormWithControlInsideComponent],
-  templateUrl: './main-form.component.html',
-  styleUrls: ['./main-form.component.scss']
+    selector: 'app-main-form',
+    imports: [CommonModule, ReactiveFormsModule, SubReusableFormComponent, SubFormWithControlInsideComponent],
+    templateUrl: './main-form.component.html',
+    styleUrls: ['./main-form.component.scss']
 })
 export class MainFormComponent {
 

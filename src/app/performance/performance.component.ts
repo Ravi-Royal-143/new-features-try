@@ -3,11 +3,10 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'app-performance',
-  standalone: true,
-  imports: [CommonModule, RouterModule],
-  templateUrl: './performance.component.html',
-  styleUrls: ['./performance.component.scss']
+    selector: 'app-performance',
+    imports: [CommonModule, RouterModule],
+    templateUrl: './performance.component.html',
+    styleUrls: ['./performance.component.scss']
 })
 export class PerformanceComponent {
 

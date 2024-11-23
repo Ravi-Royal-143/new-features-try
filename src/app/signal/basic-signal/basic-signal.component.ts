@@ -2,11 +2,10 @@ import { Component, computed, effect, signal, untracked } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-basic-signal',
-  standalone: true,
-  imports: [FormsModule],
-  templateUrl: './basic-signal.component.html',
-  styleUrl: './basic-signal.component.scss'
+    selector: 'app-basic-signal',
+    imports: [FormsModule],
+    templateUrl: './basic-signal.component.html',
+    styleUrl: './basic-signal.component.scss'
 })
 export class BasicSignalComponent {
 

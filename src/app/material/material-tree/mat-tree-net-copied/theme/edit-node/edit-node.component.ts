@@ -3,9 +3,10 @@ import { TreeData, DialogData } from '../../../mat-tree-net-copied/service/tree-
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
-  selector: 'app-edit-node',
-  templateUrl: './edit-node.component.html',
-  styleUrls: ['./edit-node.component.css']
+    selector: 'app-edit-node',
+    templateUrl: './edit-node.component.html',
+    styleUrls: ['./edit-node.component.css'],
+    standalone: false
 })
 export class EditNodeComponent {
 
@@ -37,8 +38,9 @@ export class EditNodeComponent {
 
 
 @Component({
-  selector: 'app-edit-node-dialog',
-  templateUrl: '../node-dialog/node-dialog.html',
+    selector: 'app-edit-node-dialog',
+    templateUrl: '../node-dialog/node-dialog.html',
+    standalone: false
 })
 
 export class EditNodeDialog {

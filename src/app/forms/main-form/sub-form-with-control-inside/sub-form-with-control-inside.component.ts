@@ -3,11 +3,10 @@ import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, FormGroupDirective, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-sub-form-with-control-inside',
-  standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
-  templateUrl: './sub-form-with-control-inside.component.html',
-  styleUrls: ['./sub-form-with-control-inside.component.scss']
+    selector: 'app-sub-form-with-control-inside',
+    imports: [CommonModule, ReactiveFormsModule],
+    templateUrl: './sub-form-with-control-inside.component.html',
+    styleUrls: ['./sub-form-with-control-inside.component.scss']
 })
 export class SubFormWithControlInsideComponent {
 

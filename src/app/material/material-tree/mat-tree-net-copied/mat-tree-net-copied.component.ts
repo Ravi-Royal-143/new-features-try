@@ -8,9 +8,10 @@ import { of as observableOf } from 'rxjs';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-mat-tree-net-copied',
-  templateUrl: './mat-tree-net-copied.component.html',
-  styleUrls: ['./mat-tree-net-copied.component.scss']
+    selector: 'app-mat-tree-net-copied',
+    templateUrl: './mat-tree-net-copied.component.html',
+    styleUrls: ['./mat-tree-net-copied.component.scss'],
+    standalone: false
 })
 export class MatTreeNetCopiedComponent {
   nestedTreeControl: NestedTreeControl<TreeData>;

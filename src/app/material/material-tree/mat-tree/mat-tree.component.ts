@@ -10,11 +10,10 @@ import { FoodNode, TREE_DATA } from './mat-tree';
 import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-mat-tree',
-  standalone: true,
-  imports: [CommonModule, MatTreeModule, MatIconModule, MatButtonModule, FormsModule],
-  templateUrl: './mat-tree.component.html',
-  styleUrls: ['./mat-tree.component.scss']
+    selector: 'app-mat-tree',
+    imports: [CommonModule, MatTreeModule, MatIconModule, MatButtonModule, FormsModule],
+    templateUrl: './mat-tree.component.html',
+    styleUrls: ['./mat-tree.component.scss']
 })
 export class MatTreeComponent {
   @ViewChild(MatTree) tree: MatTree<any>;

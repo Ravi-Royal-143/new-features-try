@@ -3,11 +3,10 @@ import { CommonModule } from '@angular/common';
 import { FormControl, FormRecord, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-form-record-try',
-  standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
-  templateUrl: './form-record-try.component.html',
-  styleUrls: ['./form-record-try.component.scss']
+    selector: 'app-form-record-try',
+    imports: [CommonModule, ReactiveFormsModule],
+    templateUrl: './form-record-try.component.html',
+    styleUrls: ['./form-record-try.component.scss']
 })
 export class FormRecordTryComponent implements OnInit {
   

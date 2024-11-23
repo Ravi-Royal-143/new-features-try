@@ -3,11 +3,10 @@ import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, FormGroupDirective, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-sub-reusable-form',
-  standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
-  templateUrl: './sub-reusable-form.component.html',
-  styleUrls: ['./sub-reusable-form.component.scss']
+    selector: 'app-sub-reusable-form',
+    imports: [CommonModule, ReactiveFormsModule],
+    templateUrl: './sub-reusable-form.component.html',
+    styleUrls: ['./sub-reusable-form.component.scss']
 })
 export class SubReusableFormComponent implements OnInit {
 

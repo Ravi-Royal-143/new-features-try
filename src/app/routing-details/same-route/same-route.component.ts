@@ -4,11 +4,10 @@ import { Router, RouterModule } from '@angular/router';
 import { isComp1, toggleComp1 } from './same.route';
 
 @Component({
-  selector: 'app-same-route',
-  standalone: true,
-  imports: [CommonModule, RouterModule],
-  templateUrl: './same-route.component.html',
-  styleUrls: ['./same-route.component.scss']
+    selector: 'app-same-route',
+    imports: [CommonModule, RouterModule],
+    templateUrl: './same-route.component.html',
+    styleUrls: ['./same-route.component.scss']
 })
 export class SameRouteComponent {
   

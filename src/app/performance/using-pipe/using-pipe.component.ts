@@ -4,11 +4,10 @@ import { LabelValue } from './using-pipe';
 import { GetLabelPipe } from './get-label.pipe';
 
 @Component({
-  selector: 'app-using-pipe',
-  standalone: true,
-  imports: [CommonModule, GetLabelPipe],
-  templateUrl: './using-pipe.component.html',
-  styleUrls: ['./using-pipe.component.scss']
+    selector: 'app-using-pipe',
+    imports: [CommonModule, GetLabelPipe],
+    templateUrl: './using-pipe.component.html',
+    styleUrls: ['./using-pipe.component.scss']
 })
 export class UsingPipeComponent {
 

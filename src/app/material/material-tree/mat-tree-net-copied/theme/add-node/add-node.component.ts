@@ -5,9 +5,10 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog
 
 
 @Component({
-  selector: 'app-add-node',
-  templateUrl: './add-node.component.html',
-  styleUrls: ['./add-node.component.css']
+    selector: 'app-add-node',
+    templateUrl: './add-node.component.html',
+    styleUrls: ['./add-node.component.css'],
+    standalone: false
 })
 export class AddNodeComponent {
   @Input() isTop: boolean;
@@ -42,8 +43,9 @@ export class AddNodeComponent {
 }
 
 @Component({
-  selector: 'app-new-node',
-  templateUrl: '../node-dialog/node-dialog.html',
+    selector: 'app-new-node',
+    templateUrl: '../node-dialog/node-dialog.html',
+    standalone: false
 })
 export class NewNodeDialog {
 
