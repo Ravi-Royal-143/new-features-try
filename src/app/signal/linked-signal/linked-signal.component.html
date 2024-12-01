@@ -1,14 +1,35 @@
 <div>
-    Change Farenheit: <input type="text" [(ngModel)]="fahrenheit" />
-    <br />
-    Change Celcius: <input type="text" [(ngModel)]="celsius" />
-    <br />
+    <div class="m-2">
+        <div class="m-2">
+            Change Farenheit: <input type="text" [(ngModel)]="fahrenheit" />
+        </div>
+        <div class="m-2">
+            Change Celcius: <input type="text" [(ngModel)]="celsius" />
+        </div>
+    </div>
 
-    farenheit: {{ fahrenheit() }}
-    <br />
-    celsius: {{ celsius() }}
-    <br />
+    <div class="m-2">
+        <div class="m-2">
+            <span class="font-medium">
+                Farenheit:
+            </span> 
+            {{ fahrenheit() }}
+        </div>
+        <div class="m-2">
+            <span class="font-medium">
+                Celsius:
+            </span>
+            {{ celsius() }}
+        </div>
+    </div>
 
-    If celsius had changed, farenheit will be updated using the linked signal through computation logic.
-    If we change farenheit, then farenheit no convertion occurs in value. Same value will be displayed/updated.
+    <span class="font-medium underline">Instructions:</span>
+    <ul>
+        <li>
+            If celsius had changed, farenheit will be updated using the linked signal through computation logic.
+        </li>
+        <li>
+            If we change farenheit, then farenheit no convertion occurs in value. Same value will be displayed/updated.
+        </li>
+    </ul>
 </div>
