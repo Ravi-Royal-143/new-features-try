@@ -1,0 +1,14 @@
+<div>
+    Change Farenheit: <input type="text" [(ngModel)]="fahrenheit" />
+    <br />
+    Change Celcius: <input type="text" [(ngModel)]="celsius" />
+    <br />
+
+    farenheit: {{ fahrenheit() }}
+    <br />
+    celsius: {{ celsius() }}
+    <br />
+
+    If celsius had changed, farenheit will be updated using the linked signal through computation logic.
+    If we change farenheit, then farenheit no convertion occurs in value. Same value will be displayed/updated.
+</div>
