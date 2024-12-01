@@ -1,12 +1,16 @@
 import { Component, Input, Output, EventEmitter, Inject } from '@angular/core';
 import { TreeData, DialogData } from '../../../mat-tree-net-copied/service/tree-data.model';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogContent, MatDialogActions, MatDialogClose } from '@angular/material/dialog';
+import { CdkScrollable } from '@angular/cdk/scrolling';
+import { MatFormField } from '@angular/material/form-field';
+import { MatInput } from '@angular/material/input';
+import { FormsModule } from '@angular/forms';
+import { MatButton } from '@angular/material/button';
 
 @Component({
     selector: 'app-edit-node',
     templateUrl: './edit-node.component.html',
-    styleUrls: ['./edit-node.component.css'],
-    standalone: false
+    styleUrls: ['./edit-node.component.css']
 })
 export class EditNodeComponent {
 
@@ -40,7 +44,7 @@ export class EditNodeComponent {
 @Component({
     selector: 'app-edit-node-dialog',
     templateUrl: '../node-dialog/node-dialog.html',
-    standalone: false
+    imports: [CdkScrollable, MatDialogContent, MatFormField, MatInput, FormsModule, MatDialogActions, MatButton, MatDialogClose]
 })
 
 export class EditNodeDialog {

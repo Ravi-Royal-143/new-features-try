@@ -2,16 +2,21 @@ import { TreeFunctionService } from './service/tree-function.service';
 import { TreeDataService } from './service/tree-data.service';
 import { TreeData } from './service/tree-data.model';
 import { Component, OnInit } from '@angular/core';
-import { MatTreeNestedDataSource } from '@angular/material/tree';
+import { MatTreeNestedDataSource, MatTree, MatTreeNodeDef, MatTreeNode, MatNestedTreeNode, MatTreeNodeToggle, MatTreeNodeOutlet } from '@angular/material/tree';
 import { NestedTreeControl } from '@angular/cdk/tree';
 import { of as observableOf } from 'rxjs';
 import { CommonModule } from '@angular/common';
+import { AddNodeComponent } from './theme/add-node/add-node.component';
+import { MatIconButton } from '@angular/material/button';
+import { DeleteNodeComponent } from './theme/delete-node/delete-node.component';
+import { EditNodeComponent } from './theme/edit-node/edit-node.component';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
     selector: 'app-mat-tree-net-copied',
     templateUrl: './mat-tree-net-copied.component.html',
     styleUrls: ['./mat-tree-net-copied.component.scss'],
-    standalone: false
+    imports: [AddNodeComponent, MatTree, MatTreeNodeDef, MatTreeNode, MatIconButton, DeleteNodeComponent, EditNodeComponent, MatNestedTreeNode, MatTreeNodeToggle, MatIcon, MatTreeNodeOutlet]
 })
 export class MatTreeNetCopiedComponent {
   nestedTreeControl: NestedTreeControl<TreeData>;

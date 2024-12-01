@@ -14,24 +14,22 @@ import { MatButtonModule } from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
-  declarations: [
-    MatTreeNetCopiedComponent,
-    NewNodeDialog,
-    EditNodeComponent,
-    EditNodeDialog,
-    DeleteNodeComponent,
-    AddNodeComponent,
-  ],
-  imports: [
-    CommonModule,
-    MatTreeModule,
-    MatIconModule,
-    MatTreeCopiedModule,
-    MatFormFieldModule,
-    FormsModule,
-    MatDialogModule,
-    MatButtonModule,
-    MatInputModule
-  ]
+    imports: [
+        CommonModule,
+        MatTreeModule,
+        MatIconModule,
+        MatTreeCopiedModule,
+        MatFormFieldModule,
+        FormsModule,
+        MatDialogModule,
+        MatButtonModule,
+        MatInputModule,
+        MatTreeNetCopiedComponent,
+        NewNodeDialog,
+        EditNodeComponent,
+        EditNodeDialog,
+        DeleteNodeComponent,
+        AddNodeComponent
+    ]
 })
 export class MatTreeNetCopiedModule { }
