@@ -61,7 +61,7 @@
               "extractLicenses": false,
               "sourceMap": {
                 "scripts": true,
-                "styles":true,
+                "styles": true,
                 "vendor": true
               },
               "namedChunks": true
@@ -107,11 +107,23 @@
             ],
             "scripts": []
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
       }
     }
   },
   "cli": {
-    "analytics": false
+    "analytics": false,
+    "schematicCollections": [
+      "angular-eslint"
+    ]
   }
 }
