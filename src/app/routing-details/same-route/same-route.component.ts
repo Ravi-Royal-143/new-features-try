@@ -15,7 +15,7 @@ export class SameRouteComponent {
   toggleComponent() {
     toggleComp1()
     console.log('is', isComp1.value)
-    let currentUrl = this.router.url + '?';
+    const currentUrl = this.router.url + '?';
   
     this.router.navigateByUrl(currentUrl)
       .then(() => {

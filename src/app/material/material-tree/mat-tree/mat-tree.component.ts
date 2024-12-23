@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Component, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatTree, MatTreeModule } from '@angular/material/tree';
@@ -33,8 +34,8 @@ export class MatTreeComponent {
   }
 
   recursiveNode(nodes: FoodNode[]): FoodNode[] {
-    let res = []
-    for (let node of nodes) {
+    const res = []
+    for (const node of nodes) {
       res.push({
         ...node,
         edit: false,
@@ -64,6 +65,7 @@ export class MatTreeComponent {
       edit: true
     }
     // if (currentNode.children) {
+      // eslint-disable-next-line @typescript-eslint/no-unused-expressions
       currentNode.children ? currentNode.children.push(newNode) : currentNode.children = [newNode]
       const newDataSource = new MatTreeNestedDataSource<FoodNode>();
       newDataSource.data = this.dataSource.data;

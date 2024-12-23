@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClient, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
-import { concatMap, exhaustMap, filter, interval, mergeMap, Observable, Subscription, switchMap, take } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { concatMap, exhaustMap, filter, interval, mergeMap, Subscription, switchMap, take } from 'rxjs';
 
 interface PostRes {
   id: string;
@@ -20,7 +20,7 @@ interface PostRes {
     templateUrl: './maps.component.html',
     styleUrls: ['./maps.component.scss']
 })
-export class MapsComponent {
+export class MapsComponent implements OnInit {
 
   tableDatas: PostRes[] = []
   sub$: Subscription;
@@ -40,7 +40,7 @@ export class MapsComponent {
       this.sub$.unsubscribe()
     }
     this.tableDatas = []
-    let postlds = interval(1).pipe(
+    const postlds = interval(1).pipe(
       filter(val => val > 0),
       take(100)
     )

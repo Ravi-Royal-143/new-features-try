@@ -1,5 +1,4 @@
 import { Routes } from "@angular/router";
-import { RoutingDetailsComponent } from "./routing-details.component";
 import { isComp1 } from "./same-route/same.route";
 
 export const ROUTING_SECTION: Routes = [

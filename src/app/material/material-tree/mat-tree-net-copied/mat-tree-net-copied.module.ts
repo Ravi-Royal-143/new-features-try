@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatTreeNetCopiedComponent } from './mat-tree-net-copied.component';
-import { AddNodeComponent, NewNodeDialog } from './theme/add-node/add-node.component';
-import { EditNodeComponent, EditNodeDialog } from './theme/edit-node/edit-node.component';
+import { AddNodeComponent, NewNodeDialogComponent } from './theme/add-node/add-node.component';
+import { EditNodeComponent, EditNodeDialogComponent } from './theme/edit-node/edit-node.component';
 import { DeleteNodeComponent } from './theme/delete-node/delete-node.component';
 import { MatTreeModule } from '@angular/material/tree';
 import { MatIconModule } from '@angular/material/icon';
@@ -25,9 +25,9 @@ import {MatInputModule} from '@angular/material/input';
         MatButtonModule,
         MatInputModule,
         MatTreeNetCopiedComponent,
-        NewNodeDialog,
+        NewNodeDialogComponent,
         EditNodeComponent,
-        EditNodeDialog,
+        EditNodeDialogComponent,
         DeleteNodeComponent,
         AddNodeComponent
     ]

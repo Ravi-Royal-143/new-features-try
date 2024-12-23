@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Injectable } from '@angular/core';
 import { TreeData } from './tree-from.net';
 
@@ -6,8 +7,8 @@ import { TreeData } from './tree-from.net';
 })
 export class TreeFunctionService {
 
-  flatJsonArray(flattenedAray: Array<TreeData>, node: TreeData[]) {
-    const array: Array<TreeData> = flattenedAray;
+  flatJsonArray(flattenedAray: TreeData[], node: TreeData[]) {
+    const array: TreeData[] = flattenedAray;
     node.forEach(element => {
       if (element.Children) {
         array.push(element);
@@ -36,15 +37,14 @@ export class TreeFunctionService {
   }
 
   findFatherNode(id: number, data: TreeData[]) {
-    for (let i = 0; i < data.length; i += 1) {
-      const currentFather = data[i];
+    for (const currentFather of data) {
       for (let z = 0; z < currentFather.Children.length; z += 1) {
         if (id === currentFather.Children[z]['Id']) {
           return [currentFather, z];
         }
       }
-      for (let z = 0; z < currentFather.Children.length; z += 1) {
-        if (id !== currentFather.Children[z]['Id']) {
+      for (const currentFatherChild of currentFather.Children) {
+        if (id !== currentFatherChild['Id']) {
           const result : any= this.findFatherNode(id, currentFather.Children);
           if (result !== false) {
             return result;

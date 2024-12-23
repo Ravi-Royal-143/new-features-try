@@ -29,7 +29,7 @@ export class MatTreeParentMineCustomComponent {
   }
 
   findParent(nodes: FoodNode[], searchId: string, parentNode: FoodNode | FoodNode[]): FoodNode[] | null | undefined {
-    for (let node of nodes) {
+    for (const node of nodes) {
       if (node.id === searchId) {
         return Array.isArray(parentNode) ? parentNode : parentNode.children
       }
@@ -75,8 +75,8 @@ export class MatTreeParentMineCustomComponent {
   }
 
   deleteNode(node: FoodNode) {
-    let treeData = this.dataSource.data
-    let parentData = this.findParent(treeData, node.id, treeData)
+    const treeData = this.dataSource.data
+    const parentData = this.findParent(treeData, node.id, treeData)
     if (parentData) {
       const indexPos = parentData.findIndex((data) => data.id === node.id)
       parentData.splice(indexPos, 1)

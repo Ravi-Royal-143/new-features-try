@@ -1,6 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormControl, FormGroup, FormGroupDirective, ReactiveFormsModule } from '@angular/forms';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormGroup, FormGroupDirective, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
     selector: 'app-sub-reusable-form',
@@ -17,6 +17,7 @@ export class SubReusableFormComponent implements OnInit {
 
   ngOnInit() {
     console.log(this.formgroupDirective)
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     this.form = this.formgroupDirective.control.get(this.groupName) as FormGroup<any>
   }
 }

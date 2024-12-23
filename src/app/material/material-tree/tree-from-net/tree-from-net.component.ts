@@ -1,14 +1,14 @@
-import { Component, ViewChild } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { MatTree, MatTreeModule } from '@angular/material/tree';
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { NestedTreeControl } from '@angular/cdk/tree';
-import { MatTreeNestedDataSource } from '@angular/material/tree';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
+import { CommonModule } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { TreeData } from './tree-from.net';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTreeModule, MatTreeNestedDataSource } from '@angular/material/tree';
 import { of } from 'rxjs';
 import { TreeDataService } from './tree-data.service';
+import { TreeData } from './tree-from.net';
 import { TreeFunctionService } from './tree-function.service';
 
 @Component({
@@ -17,7 +17,7 @@ import { TreeFunctionService } from './tree-function.service';
     templateUrl: './tree-from-net.component.html',
     styleUrls: ['./tree-from-net.component.scss']
 })
-export class TreeFromNetComponent {
+export class TreeFromNetComponent implements OnInit {
   nestedTreeControl: NestedTreeControl<TreeData>;
   nestedDataSource: MatTreeNestedDataSource<TreeData>;
 

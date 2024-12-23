@@ -1,5 +1,4 @@
 import { Routes } from "@angular/router";
-import { ContentProjectionComponent } from "./content-projection.component";
 
 export const CONTENT_PROJECTION_ROUTES: Routes = [{
     path: '',

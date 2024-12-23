@@ -8,7 +8,7 @@ import { FormControl, FormGroup, FormGroupDirective, ReactiveFormsModule } from 
     templateUrl: './sub-form-with-control-inside.component.html',
     styleUrls: ['./sub-form-with-control-inside.component.scss']
 })
-export class SubFormWithControlInsideComponent {
+export class SubFormWithControlInsideComponent implements OnInit {
 
   @Input() groupName: string
   form: FormGroup
@@ -20,11 +20,11 @@ export class SubFormWithControlInsideComponent {
 
     //here the form control is present here which is deviated from the parent form component 
     // its better to have all the controls in the same component than making it spreaded out
-    const formControl = this.formgroupDirective.control as FormGroup<any>
     this.formgroupDirective.control.addControl(this.groupName, new FormGroup({
       name: new FormControl(''),
       address: new FormControl('')
     }))
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     this.form = this.formgroupDirective.control.get(this.groupName) as FormGroup<any>
   }
 }

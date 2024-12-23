@@ -26,7 +26,7 @@ export class AddNodeComponent {
   constructor(public dialog: MatDialog) {}
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(NewNodeDialog, {
+    const dialogRef = this.dialog.open(NewNodeDialogComponent, {
       width: '250px',
       data: {nodeName: this.name, nodeDescription: this.description, Component: 'Add'}
     });
@@ -53,10 +53,10 @@ export class AddNodeComponent {
     templateUrl: '../node-dialog/node-dialog.html',
     imports: [CdkScrollable, MatDialogContent, MatFormField, MatInput, FormsModule, MatDialogActions, MatButton, MatDialogClose]
 })
-export class NewNodeDialog {
+export class NewNodeDialogComponent {
 
   constructor(
-    public dialogRef: MatDialogRef<NewNodeDialog>,
+    public dialogRef: MatDialogRef<NewNodeDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
 
   onNoClick(): void {

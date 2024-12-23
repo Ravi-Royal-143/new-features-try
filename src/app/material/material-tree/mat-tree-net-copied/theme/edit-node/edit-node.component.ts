@@ -21,7 +21,7 @@ export class EditNodeComponent {
   constructor(public dialog: MatDialog) {}
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(EditNodeDialog, {
+    const dialogRef = this.dialog.open(EditNodeDialogComponent, {
       width: '250px',
       data: {Name: this.currentNode.Name, Description: this.currentNode.Description, Component: 'Edit'}
     });
@@ -47,9 +47,9 @@ export class EditNodeComponent {
     imports: [CdkScrollable, MatDialogContent, MatFormField, MatInput, FormsModule, MatDialogActions, MatButton, MatDialogClose]
 })
 
-export class EditNodeDialog {
+export class EditNodeDialogComponent {
   constructor(
-    public dialogRef: MatDialogRef<EditNodeDialog>,
+    public dialogRef: MatDialogRef<EditNodeDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
 
   onNoClick(): void {

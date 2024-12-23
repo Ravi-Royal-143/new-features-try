@@ -1,16 +1,16 @@
-import { TreeFunctionService } from './service/tree-function.service';
-import { TreeDataService } from './service/tree-data.service';
-import { TreeData } from './service/tree-data.model';
-import { Component, OnInit } from '@angular/core';
-import { MatTreeNestedDataSource, MatTree, MatTreeNodeDef, MatTreeNode, MatNestedTreeNode, MatTreeNodeToggle, MatTreeNodeOutlet } from '@angular/material/tree';
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { NestedTreeControl } from '@angular/cdk/tree';
-import { of as observableOf } from 'rxjs';
-import { CommonModule } from '@angular/common';
-import { AddNodeComponent } from './theme/add-node/add-node.component';
+import { Component, OnInit } from '@angular/core';
 import { MatIconButton } from '@angular/material/button';
+import { MatIcon } from '@angular/material/icon';
+import { MatNestedTreeNode, MatTree, MatTreeNestedDataSource, MatTreeNode, MatTreeNodeDef, MatTreeNodeOutlet, MatTreeNodeToggle } from '@angular/material/tree';
+import { of as observableOf } from 'rxjs';
+import { TreeData } from './service/tree-data.model';
+import { TreeDataService } from './service/tree-data.service';
+import { TreeFunctionService } from './service/tree-function.service';
+import { AddNodeComponent } from './theme/add-node/add-node.component';
 import { DeleteNodeComponent } from './theme/delete-node/delete-node.component';
 import { EditNodeComponent } from './theme/edit-node/edit-node.component';
-import { MatIcon } from '@angular/material/icon';
 
 @Component({
     selector: 'app-mat-tree-net-copied',
@@ -18,7 +18,7 @@ import { MatIcon } from '@angular/material/icon';
     styleUrls: ['./mat-tree-net-copied.component.scss'],
     imports: [AddNodeComponent, MatTree, MatTreeNodeDef, MatTreeNode, MatIconButton, DeleteNodeComponent, EditNodeComponent, MatNestedTreeNode, MatTreeNodeToggle, MatIcon, MatTreeNodeOutlet]
 })
-export class MatTreeNetCopiedComponent {
+export class MatTreeNetCopiedComponent implements OnInit {
   nestedTreeControl: NestedTreeControl<TreeData>;
   nestedDataSource: MatTreeNestedDataSource<TreeData>;
 

@@ -1,7 +1,7 @@
 import { AsyncPipe } from '@angular/common';
-import { Component, afterNextRender, afterRender, effect } from '@angular/core';
+import { Component, afterNextRender, afterRender } from '@angular/core';
 import { toObservable, toSignal } from '@angular/core/rxjs-interop';
-import { interval, map, tap } from 'rxjs';
+import { interval, tap } from 'rxjs';
 
 @Component({
     selector: 'app-signal-observable',

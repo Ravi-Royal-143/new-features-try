@@ -1,5 +1,5 @@
 import { TreeData } from '../../../mat-tree-net-copied/service/tree-data.model';
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Component, Output, EventEmitter, Input } from '@angular/core';
 
 @Component({
     selector: 'app-delete-node',
