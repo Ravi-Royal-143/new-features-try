@@ -28,6 +28,7 @@
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
               "src/theme.scss",
+              "src/tailwind.css",
               "node_modules/primeflex/themes/saga-blue.css",
               "node_modules/primeflex/primeflex.css",
               "src/styles.scss"
@@ -89,7 +90,12 @@
             "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
             "assets": ["src/favicon.ico", "src/assets"],
-            "styles": ["src/theme.scss", "node_modules/primeflex/primeflex.css", "src/styles.scss"],
+            "styles": [
+              "src/theme.scss",
+              "src/tailwind.css",
+              "node_modules/primeflex/primeflex.css",
+              "src/styles.scss"
+            ],
             "scripts": []
           }
         },

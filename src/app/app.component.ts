@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
@@ -7,10 +7,19 @@ import { RouterLink, RouterOutlet } from '@angular/router';
   styleUrls: ['./app.component.scss'],
   imports: [RouterLink, RouterOutlet],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'test';
+  private static readonly THEME_CLASS = 'theme-dark';
+  ngOnInit(): void {
+    const saved = localStorage.getItem('theme') as 'light' | 'dark' | null;
+    if (saved === 'dark') {
+      document.body.classList.add(AppComponent.THEME_CLASS);
+    }
+  }
   toggleTheme() {
     const body = document.body;
-    body.classList.toggle('theme-dark');
+    body.classList.toggle(AppComponent.THEME_CLASS);
+    const isDark = body.classList.contains(AppComponent.THEME_CLASS);
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
   }
 }
