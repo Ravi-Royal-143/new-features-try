@@ -1,16 +1,15 @@
 <p>signal-observable works!</p>
 
-{{signal()}}
+{{ signal() }}
 <br />
-{{obsSignal$ | async}}
+{{ obsSignal$ | async }}
 
 @if (signal() % 2 === 0) {
   <p>Signal is even</p>
-} 
-@else {
+} @else {
   <p>Signal is odd</p>
 }
 
 @for (item of items; track $index) {
-    <p>{{item}}</p>
+  <p>{{ item }}</p>
 }

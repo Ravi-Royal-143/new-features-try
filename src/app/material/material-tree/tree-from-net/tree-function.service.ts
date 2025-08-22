@@ -1,51 +1,50 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Injectable } from '@angular/core';
+
 import { TreeData } from './tree-from.net';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TreeFunctionService {
-
-  flatJsonArray(flattenedAray: TreeData[], node: TreeData[]) {
+  flatJsonArray(flattenedAray: TreeData[], node: TreeData[]): TreeData[] {
     const array: TreeData[] = flattenedAray;
-    node.forEach(element => {
-      if (element.Children) {
-        array.push(element);
+    for (const element of node) {
+      array.push(element);
+      if (element.Children.length > 0) {
         this.flatJsonArray(array, element.Children);
       }
-    });
+    }
     return array;
   }
 
-  findNodeMaxId(node: TreeData[]) {
+  findNodeMaxId(node: TreeData[]): number {
     const flatArray = this.flatJsonArray([], node);
-    const flatArrayWithoutChildren: any  = [];
-    flatArray.forEach(element => {
-      flatArrayWithoutChildren.push(element.Id);
-    });
-    return Math.max(...flatArrayWithoutChildren);
+    const ids: number[] = [];
+    for (const element of flatArray) {
+      ids.push(element.Id);
+    }
+    return ids.length ? Math.max(...ids) : 0;
   }
 
-  findPosition(id: number, data: TreeData[]) {
+  findPosition(id: number, data: TreeData[]): number | null {
     for (let i = 0; i < data.length; i += 1) {
       if (id === data[i].Id) {
         return i;
       }
     }
-    return null
+    return null;
   }
 
-  findFatherNode(id: number, data: TreeData[]) {
+  findFatherNode(id: number, data: TreeData[]): readonly [TreeData, number] | false {
     for (const currentFather of data) {
       for (let z = 0; z < currentFather.Children.length; z += 1) {
-        if (id === currentFather.Children[z]['Id']) {
-          return [currentFather, z];
+        if (id === currentFather.Children[z].Id) {
+          return [currentFather, z] as const;
         }
       }
       for (const currentFatherChild of currentFather.Children) {
-        if (id !== currentFatherChild['Id']) {
-          const result : any= this.findFatherNode(id, currentFather.Children);
+        if (id !== currentFatherChild.Id) {
+          const result = this.findFatherNode(id, currentFather.Children);
           if (result !== false) {
             return result;
           }
@@ -54,5 +53,4 @@ export class TreeFunctionService {
     }
     return false;
   }
-
 }

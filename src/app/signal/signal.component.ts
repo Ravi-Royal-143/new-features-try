@@ -3,10 +3,9 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 @Component({
-    selector: 'app-signal',
-    imports: [FormsModule, RouterModule],
-    templateUrl: './signal.component.html',
-    styleUrl: './signal.component.scss'
+  selector: 'app-signal',
+  imports: [FormsModule, RouterModule],
+  templateUrl: './signal.component.html',
+  styleUrl: './signal.component.scss',
 })
-export class SignalComponent {
-}
+export class SignalComponent {}

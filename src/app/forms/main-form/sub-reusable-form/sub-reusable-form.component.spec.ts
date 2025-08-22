@@ -8,9 +8,8 @@ describe('SubReusableFormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ SubReusableFormComponent ]
-    })
-    .compileComponents();
+      imports: [SubReusableFormComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(SubReusableFormComponent);
     component = fixture.componentInstance;

@@ -8,10 +8,9 @@ describe('SignalObservableComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SignalObservableComponent]
-    })
-    .compileComponents();
-    
+      imports: [SignalObservableComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(SignalObservableComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

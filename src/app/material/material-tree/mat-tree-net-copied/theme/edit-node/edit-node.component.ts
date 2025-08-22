@@ -1,59 +1,78 @@
-import { Component, Input, Output, EventEmitter, Inject } from '@angular/core';
-import { TreeData, DialogData } from '../../../mat-tree-net-copied/service/tree-data.model';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogContent, MatDialogActions, MatDialogClose } from '@angular/material/dialog';
 import { CdkScrollable } from '@angular/cdk/scrolling';
-import { MatFormField } from '@angular/material/form-field';
-import { MatInput } from '@angular/material/input';
+import { Component, Input, Output, EventEmitter, Inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButton } from '@angular/material/button';
+import {
+  MatDialog,
+  MatDialogRef,
+  MAT_DIALOG_DATA,
+  MatDialogContent,
+  MatDialogActions,
+  MatDialogClose,
+} from '@angular/material/dialog';
+import { MatFormField } from '@angular/material/form-field';
+import { MatInput } from '@angular/material/input';
+
+import { TreeData, DialogData } from '../../../mat-tree-net-copied/service/tree-data.model';
 
 @Component({
-    selector: 'app-edit-node',
-    templateUrl: './edit-node.component.html',
-    styleUrls: ['./edit-node.component.css']
+  selector: 'app-edit-node',
+  templateUrl: './edit-node.component.html',
+  styleUrls: ['./edit-node.component.css'],
 })
 export class EditNodeComponent {
-
   @Input() isTop: boolean;
   @Input() currentNode: TreeData;
-  @Output() edittedNode = new EventEmitter;
+  @Output() edittedNode = new EventEmitter<{ currentNode: TreeData; node: TreeData }>();
 
   constructor(public dialog: MatDialog) {}
 
   openDialog(): void {
     const dialogRef = this.dialog.open(EditNodeDialogComponent, {
       width: '250px',
-      data: {Name: this.currentNode.Name, Description: this.currentNode.Description, Component: 'Edit'}
+      data: {
+        Name: this.currentNode.Name,
+        Description: this.currentNode.Description,
+        Component: 'Edit',
+      },
     });
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        const node: TreeData = {
-          Id: null,
-          Name: result.nodeName,
-          Description: result.nodeDescription,
-          Children: this.currentNode.Children
-        };
-        this.edittedNode.emit({currentNode: this.currentNode, node: node});
-      }
-    });
+    dialogRef
+      .afterClosed()
+      .subscribe((result: { nodeName?: string; nodeDescription?: string } | undefined) => {
+        if (result) {
+          const node: TreeData = {
+            Id: null,
+            Name: result.nodeName ?? this.currentNode.Name,
+            Description: result.nodeDescription ?? this.currentNode.Description,
+            Children: this.currentNode.Children,
+          };
+          this.edittedNode.emit({ currentNode: this.currentNode, node: node });
+        }
+      });
   }
 }
 
-
-
 @Component({
-    selector: 'app-edit-node-dialog',
-    templateUrl: '../node-dialog/node-dialog.html',
-    imports: [CdkScrollable, MatDialogContent, MatFormField, MatInput, FormsModule, MatDialogActions, MatButton, MatDialogClose]
+  selector: 'app-edit-node-dialog',
+  templateUrl: '../node-dialog/node-dialog.html',
+  imports: [
+    CdkScrollable,
+    MatDialogContent,
+    MatFormField,
+    MatInput,
+    FormsModule,
+    MatDialogActions,
+    MatButton,
+    MatDialogClose,
+  ],
 })
-
 export class EditNodeDialogComponent {
   constructor(
     public dialogRef: MatDialogRef<EditNodeDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
+    @Inject(MAT_DIALOG_DATA) public data: DialogData,
+  ) {}
 
   onNoClick(): void {
     this.dialogRef.close();
   }
-
 }

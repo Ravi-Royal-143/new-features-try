@@ -8,9 +8,8 @@ describe('LinkedSignalComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [LinkedSignalComponent]
-    })
-    .compileComponents();
+      imports: [LinkedSignalComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(LinkedSignalComponent);
     component = fixture.componentInstance;

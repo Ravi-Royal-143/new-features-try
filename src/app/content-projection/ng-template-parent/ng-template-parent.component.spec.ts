@@ -8,9 +8,8 @@ describe('NgTemplateParentComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ NgTemplateParentComponent ]
-    })
-    .compileComponents();
+      imports: [NgTemplateParentComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(NgTemplateParentComponent);
     component = fixture.componentInstance;

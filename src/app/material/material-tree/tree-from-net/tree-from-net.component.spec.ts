@@ -8,9 +8,8 @@ describe('TreeFromNetComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ TreeFromNetComponent ]
-    })
-    .compileComponents();
+      imports: [TreeFromNetComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(TreeFromNetComponent);
     component = fixture.componentInstance;

@@ -4,50 +4,55 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: 'routes',
-    loadComponent: () => import('./route-link/route-link.component').then(c => c.RouteLinkComponent)
+    loadComponent: () =>
+      import('./route-link/route-link.component').then((c) => c.RouteLinkComponent),
   },
   {
     path: 'forms',
-    loadChildren: () => import('./forms/forms.route').then(c => c.FORMS_ROUTES)
+    loadChildren: () => import('./forms/forms.route').then((c) => c.FORMS_ROUTES),
   },
- 
+
   {
     path: 'rxjs',
-    loadChildren: () => import('./rxjs/rxjs.routes').then(c => c.RXJS_ROUTES)
+    loadChildren: () => import('./rxjs/rxjs.routes').then((c) => c.RXJS_ROUTES),
   },
   {
     path: 'material',
-    loadChildren: () => import('./material/material.routing').then(c => c.MATERIALS_ROUTES)
+    loadChildren: () => import('./material/material.routing').then((c) => c.MATERIALS_ROUTES),
   },
   {
     path: 'content-projection',
-    loadChildren: () => import('./content-projection/content-projection.route').then(c => c.CONTENT_PROJECTION_ROUTES)
+    loadChildren: () =>
+      import('./content-projection/content-projection.route').then(
+        (c) => c.CONTENT_PROJECTION_ROUTES,
+      ),
   },
   {
     path: 'routing-query-solution',
-    loadChildren: () => import('./routing-details/routing-details.route').then(c => c.ROUTING_SECTION)
+    loadChildren: () =>
+      import('./routing-details/routing-details.route').then((c) => c.ROUTING_SECTION),
   },
   {
     path: 'performance',
-    loadChildren: () => import('./performance/performance.route').then(c => c.PERFORMANCE_ROUTES)
+    loadChildren: () => import('./performance/performance.route').then((c) => c.PERFORMANCE_ROUTES),
   },
   {
     path: 'signal',
-    loadChildren: () => import('./signal/signal.routing').then(c => c.SIGNAL_ROUTES)
+    loadChildren: () => import('./signal/signal.routing').then((c) => c.SIGNAL_ROUTES),
   },
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'routes'
+    redirectTo: 'routes',
   },
   {
     path: '**',
-    redirectTo: 'routes'
-  }
+    redirectTo: 'routes',
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

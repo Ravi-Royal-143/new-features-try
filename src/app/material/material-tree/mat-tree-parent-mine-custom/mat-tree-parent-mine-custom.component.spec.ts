@@ -8,9 +8,8 @@ describe('MatTreeParentMineCustomComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ MatTreeParentMineCustomComponent ]
-    })
-    .compileComponents();
+      imports: [MatTreeParentMineCustomComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(MatTreeParentMineCustomComponent);
     component = fixture.componentInstance;

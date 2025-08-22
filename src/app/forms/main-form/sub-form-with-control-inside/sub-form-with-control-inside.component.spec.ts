@@ -8,9 +8,8 @@ describe('SubFormWithControlInsideComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ SubFormWithControlInsideComponent ]
-    })
-    .compileComponents();
+      imports: [SubFormWithControlInsideComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(SubFormWithControlInsideComponent);
     component = fixture.componentInstance;

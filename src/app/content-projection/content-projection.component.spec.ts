@@ -8,9 +8,8 @@ describe('ContentProjectionComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ ContentProjectionComponent ]
-    })
-    .compileComponents();
+      imports: [ContentProjectionComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(ContentProjectionComponent);
     component = fixture.componentInstance;

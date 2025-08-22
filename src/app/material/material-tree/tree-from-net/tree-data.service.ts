@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+
 import { TreeData } from './tree-from.net';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TreeDataService {
-
-  _dataChange = new BehaviorSubject<TreeData[]>(
-    [{
+  _dataChange = new BehaviorSubject<TreeData[]>([
+    {
       Id: 1,
       Name: 'John Heart 1',
       Description: 'Father 1',
@@ -17,7 +17,7 @@ export class TreeDataService {
           Id: 3,
           Name: 'Ken Bond 1',
           Description: 'Children 1',
-          Children: []
+          Children: [],
         },
         {
           Id: 4,
@@ -28,11 +28,11 @@ export class TreeDataService {
               Id: 5,
               Name: 'Vaggelis Awesome 1',
               Description: 'GrandChildren 1',
-              Children: []
-            }
-          ]
-        }
-      ]
+              Children: [],
+            },
+          ],
+        },
+      ],
     },
     {
       Id: 2,
@@ -43,12 +43,9 @@ export class TreeDataService {
           Id: 6,
           Name: 'Ken Bond 1',
           Description: 'Children 1',
-          Children: []
-        }
-      ]
-    }
-  ]
-  );
-
-
+          Children: [],
+        },
+      ],
+    },
+  ]);
 }

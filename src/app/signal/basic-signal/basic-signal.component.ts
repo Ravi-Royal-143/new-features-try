@@ -2,13 +2,12 @@ import { Component, computed, effect, signal, untracked } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
-    selector: 'app-basic-signal',
-    imports: [FormsModule],
-    templateUrl: './basic-signal.component.html',
-    styleUrl: './basic-signal.component.scss'
+  selector: 'app-basic-signal',
+  imports: [FormsModule],
+  templateUrl: './basic-signal.component.html',
+  styleUrl: './basic-signal.component.scss',
 })
 export class BasicSignalComponent {
-
   query = signal('');
   search = signal('');
 
@@ -28,7 +27,7 @@ export class BasicSignalComponent {
     console.log('priting:', this.consolidatedQueryandSearch());
   });
 
-  constructor() { 
+  constructor() {
     // effect(() => {
     //   console.log('query:', this.query());
     // });
@@ -38,7 +37,7 @@ export class BasicSignalComponent {
     // effect(() => {
     //   console.log('consolidatedQueryandSearch:', this.consolidatedQueryandSearch());
     // });
-    effect(() => { 
+    effect(() => {
       this.query();
       // this.printing();
       untracked(() => {
@@ -47,5 +46,4 @@ export class BasicSignalComponent {
       });
     });
   }
-
 }

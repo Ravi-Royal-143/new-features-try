@@ -1,21 +1,22 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+
 import { MatTreeNetCopiedComponent } from './mat-tree-net-copied.component';
 
 const routes: Routes = [
-    {
-        path: '',
-        component: MatTreeNetCopiedComponent
-    },
-    {
-        path: '',
-        redirectTo: '/',
-        pathMatch: 'full'
-    }
-]
+  {
+    path: '',
+    component: MatTreeNetCopiedComponent,
+  },
+  {
+    path: '',
+    redirectTo: '/',
+    pathMatch: 'full',
+  },
+];
 
 @NgModule({
-    imports: [RouterModule.forChild(routes)],
-    exports: [RouterModule]
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule],
 })
-export class MatTreeCopiedModule { }
+export class MatTreeCopiedModule {}

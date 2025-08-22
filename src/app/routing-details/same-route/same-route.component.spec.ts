@@ -8,9 +8,8 @@ describe('SameRouteComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ SameRouteComponent ]
-    })
-    .compileComponents();
+      imports: [SameRouteComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(SameRouteComponent);
     component = fixture.componentInstance;

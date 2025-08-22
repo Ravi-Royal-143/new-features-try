@@ -1,30 +1,32 @@
-import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormGroupDirective, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
-    selector: 'app-sub-form-with-control-inside',
-    imports: [CommonModule, ReactiveFormsModule],
-    templateUrl: './sub-form-with-control-inside.component.html',
-    styleUrls: ['./sub-form-with-control-inside.component.scss']
+  selector: 'app-sub-form-with-control-inside',
+  imports: [CommonModule, ReactiveFormsModule],
+  templateUrl: './sub-form-with-control-inside.component.html',
+  styleUrls: ['./sub-form-with-control-inside.component.scss'],
 })
 export class SubFormWithControlInsideComponent implements OnInit {
+  @Input() groupName: string;
+  form: FormGroup;
 
-  @Input() groupName: string
-  form: FormGroup
-
-  constructor(private formgroupDirective: FormGroupDirective) { }
+  constructor(private formgroupDirective: FormGroupDirective) {}
 
   ngOnInit() {
-    console.log(this.formgroupDirective)
+    console.log(this.formgroupDirective);
 
-    //here the form control is present here which is deviated from the parent form component 
+    //here the form control is present here which is deviated from the parent form component
     // its better to have all the controls in the same component than making it spreaded out
-    this.formgroupDirective.control.addControl(this.groupName, new FormGroup({
-      name: new FormControl(''),
-      address: new FormControl('')
-    }))
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    this.form = this.formgroupDirective.control.get(this.groupName) as FormGroup<any>
+    this.formgroupDirective.control.addControl(
+      this.groupName,
+      new FormGroup({
+        name: new FormControl(''),
+        address: new FormControl(''),
+      }),
+    );
+
+    this.form = this.formgroupDirective.control.get(this.groupName) as FormGroup;
   }
 }

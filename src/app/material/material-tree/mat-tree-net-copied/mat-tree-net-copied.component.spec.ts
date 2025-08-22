@@ -8,9 +8,8 @@ describe('MatTreeNetCopiedComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ MatTreeNetCopiedComponent ]
-    })
-    .compileComponents();
+      imports: [MatTreeNetCopiedComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(MatTreeNetCopiedComponent);
     component = fixture.componentInstance;

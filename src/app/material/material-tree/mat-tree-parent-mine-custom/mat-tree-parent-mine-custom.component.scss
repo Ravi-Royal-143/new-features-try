@@ -1,57 +1,56 @@
 .example-tree-invisible {
-    display: none;
+  display: none;
 }
 
 .example-tree ul,
 .example-tree li {
-    margin-top: 0;
-    margin-bottom: 0;
-    list-style-type: none;
+  margin-top: 0;
+  margin-bottom: 0;
+  list-style-type: none;
 }
 
 $pos-icon-left: -17px;
 $bd-color: lightgreen;
 
 @mixin verticalLineStyle {
-    border-left: 1px solid $bd-color;
-    content: '';
-    position: absolute;
-    left: $pos-icon-left;
-    top: -24px;
-    bottom: 24px;
-    display: inline;
-
+  border-left: 1px solid $bd-color;
+  content: '';
+  position: absolute;
+  left: $pos-icon-left;
+  top: -24px;
+  bottom: 24px;
+  display: inline;
 }
 
 .expansion-container {
+  position: relative;
+  padding-left: 40px;
+  .mat-tree-node {
     position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: $pos-icon-left;
+      border-top: 1px solid $bd-color;
+      width: 30px;
+    }
+
+    &::after {
+      @include verticalLineStyle();
+    }
+  }
+
+  > .mat-tree-node {
     padding-left: 40px;
-    .mat-tree-node {
-        position: relative;
+  }
 
-        &::before {
-            content: '';
-            position: absolute;
-            left: $pos-icon-left;
-            border-top: 1px solid $bd-color;
-            width: 30px;
-        }
+  .mat-nested-tree-node {
+    position: relative;
+    display: block;
 
-        &::after {
-            @include verticalLineStyle()
-        }
+    &:not(:last-child)::before {
+      @include verticalLineStyle();
     }
-
-    > .mat-tree-node {
-        padding-left: 40px;
-    }
-
-    .mat-nested-tree-node {
-        position: relative;
-        display: block;
-
-        &:not(:last-child)::before {
-            @include verticalLineStyle()
-        }
-    }
+  }
 }

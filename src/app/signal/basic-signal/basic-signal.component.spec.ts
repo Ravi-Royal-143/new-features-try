@@ -8,10 +8,9 @@ describe('BasicSignalComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [BasicSignalComponent]
-    })
-    .compileComponents();
-    
+      imports: [BasicSignalComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(BasicSignalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
