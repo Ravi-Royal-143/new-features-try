@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
 
 import { SubFormWithControlInsideComponent } from './sub-form-with-control-inside/sub-form-with-control-inside.component';
 import { SubReusableFormComponent } from './sub-reusable-form/sub-reusable-form.component';
@@ -10,6 +11,7 @@ import { SubReusableFormComponent } from './sub-reusable-form/sub-reusable-form.
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    MatButtonModule,
     SubReusableFormComponent,
     SubFormWithControlInsideComponent,
   ],

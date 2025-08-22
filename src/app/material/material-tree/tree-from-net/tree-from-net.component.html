@@ -47,7 +47,10 @@
 
     <ng-template #editContainer let-nodeData>
       <ng-container *ngIf="nodeData?.edit; else showContent">
-        <input *ngIf="nodeData?.edit" [(ngModel)]="nodeData.name" />
+        <mat-form-field appearance="outline" class="w-64">
+          <mat-label>Node name</mat-label>
+          <input matInput *ngIf="nodeData?.edit" [(ngModel)]="nodeData.name" />
+        </mat-form-field>
       </ng-container>
       <ng-template #showContent>
         <span>

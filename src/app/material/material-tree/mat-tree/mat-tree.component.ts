@@ -3,7 +3,9 @@ import { CommonModule } from '@angular/common';
 import { Component, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
 import { MatTree, MatTreeModule } from '@angular/material/tree';
 import { MatTreeNestedDataSource } from '@angular/material/tree';
 
@@ -11,7 +13,15 @@ import { FoodNode, TREE_DATA } from './mat-tree';
 
 @Component({
   selector: 'app-mat-tree',
-  imports: [CommonModule, MatTreeModule, MatIconModule, MatButtonModule, FormsModule],
+  imports: [
+    CommonModule,
+    MatTreeModule,
+    MatIconModule,
+    MatButtonModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+  ],
   templateUrl: './mat-tree.component.html',
   styleUrls: ['./mat-tree.component.scss'],
 })

@@ -1,9 +1,20 @@
 <header class="app-toolbar">
   <div class="toolbar-title">🚀 Angular New Features Playground</div>
-  <nav>
-    <a [routerLink]="'routes'" class="btn btn-light">All routes</a>
+  <nav class="flex items-center gap-2">
+    <button mat-raised-button color="primary" [routerLink]="'routes'">All routes</button>
+    <button
+      mat-raised-button
+      class="theme-toggle"
+      type="button"
+      (click)="toggleTheme()"
+      [attr.aria-pressed]="isDark"
+      [color]="isDark ? 'primary' : undefined"
+      aria-label="Toggle color theme"
+    >
+      <mat-icon class="mr-1">{{ isDark ? 'dark_mode' : 'light_mode' }}</mat-icon>
+      <span class="hidden sm:inline">Toggle theme</span>
+    </button>
   </nav>
-  <button class="theme-toggle" (click)="toggleTheme()">Toggle theme</button>
 </header>
 
 <main class="app-content fade-in-up">

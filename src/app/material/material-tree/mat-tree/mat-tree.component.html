@@ -1,7 +1,7 @@
 <section class="card">
-  <div class="p-2">
-    <button class="btn btn-light" (click)="print()">Console data</button>
-    <button class="btn btn-primary" (click)="toggleTree()">Toggle tree</button>
+  <div class="p-2 flex gap-2">
+    <button mat-raised-button (click)="print()">Console data</button>
+    <button mat-raised-button color="primary" (click)="toggleTree()">Toggle tree</button>
   </div>
   <div *ngIf="showTree">
     <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="example-tree" #tree>
@@ -33,7 +33,10 @@
 
     <ng-template #editContainer let-nodeData>
       <ng-container *ngIf="nodeData?.edit; else showContent">
-        <input *ngIf="nodeData?.edit" [(ngModel)]="nodeData.name" (blur)="saveNode(nodeData)" />
+        <mat-form-field *ngIf="nodeData?.edit" appearance="outline" class="w-64">
+          <mat-label>Node name</mat-label>
+          <input matInput [(ngModel)]="nodeData.name" (blur)="saveNode(nodeData)" />
+        </mat-form-field>
       </ng-container>
       <ng-template #showContent>
         <span>

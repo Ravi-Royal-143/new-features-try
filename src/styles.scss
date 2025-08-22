@@ -34,12 +34,12 @@ body {
 
 /* Dark theme (scoped with class on body) */
 body.theme-dark {
-  --c-surface: #0f172a;
-  --c-surface-2: #111827;
-  --c-text: #e5e7eb;
-  --c-text-muted: #94a3b8;
+  --c-surface: #0b1220; /* darker surface */
+  --c-surface-2: #0f172a;
+  --c-text: #f3f4f6; /* near-white for contrast */
+  --c-text-muted: #a5b4fc; /* lighter indigo-muted */
   --c-border: #1f2937;
-  --g-bg: linear-gradient(135deg, #0b1020 0%, #151a2b 100%);
+  --g-bg: linear-gradient(135deg, #070b14 0%, #111827 100%);
 }
 
 /* Top toolbar */
@@ -62,8 +62,8 @@ body.theme-dark {
 }
 .theme-toggle {
   background: transparent;
-  border: 1px solid var(--c-border);
-  color: inherit;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: #fff;
   padding: 6px 10px;
   border-radius: 8px;
   cursor: pointer;
@@ -148,6 +148,63 @@ a {
 }
 a:hover {
   color: var(--c-primary-2);
+}
+
+/* Form fields - base styling to make inputs and selects look good in both themes */
+input[type='text'],
+input[type='number'],
+input[type='email'],
+input[type='password'],
+textarea,
+select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--c-border);
+  background: var(--c-surface);
+  color: var(--c-text);
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+input::placeholder,
+textarea::placeholder {
+  color: var(--c-text-muted);
+}
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: #7c8cf9;
+  box-shadow: 0 0 0 3px rgba(124, 140, 249, 0.3);
+}
+
+/* Tables dark-mode contrast tweak */
+body.theme-dark table {
+  background: var(--c-surface-2);
+}
+body.theme-dark tbody tr:hover {
+  background: rgba(124, 140, 249, 0.15);
+}
+
+/* Material button contrast fixes in dark mode */
+body.theme-dark .mat-mdc-raised-button.mat-mdc-button-base {
+  /* Background and label for default (no color) raised buttons */
+  --mdc-protected-button-container-color: #1f2937; /* slate-800 */
+  --mdc-protected-button-label-text-color: #f3f4f6; /* near-white */
+  border-color: #334155;
+}
+body.theme-dark .mat-mdc-raised-button.mat-primary {
+  --mdc-protected-button-label-text-color: #ffffff;
+}
+body.theme-dark .mat-mdc-outlined-button.mat-mdc-button-base {
+  --mdc-outlined-button-outline-color: #334155; /* slate-700 */
+  --mdc-outlined-button-label-text-color: #e5e7eb; /* light text */
+}
+body.theme-dark .mat-mdc-button.mat-mdc-button-base {
+  --mdc-text-button-label-text-color: #e5e7eb;
 }
 
 /* Utility containers */

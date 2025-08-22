@@ -1,10 +1,16 @@
 <section class="card">
-  <h2>RxJS: Mapping Operators</h2>
-  <div class="p-2">
-    <button class="btn btn-primary" (click)="switchMapFn()">SwitchMap</button>
-    <button class="btn btn-light" (click)="exhaustMap()">ExhaustMap</button>
-    <button class="btn btn-light" (click)="concatMapFn()">ConcatMap</button>
-    <button class="btn btn-light" (click)="mergeMapFn()">MergeMap</button>
+  <h2 class="flex items-center gap-2">
+    RxJS: Mapping Operators
+    <span
+      class="text-xs font-semibold px-2 py-0.5 rounded bg-indigo-100 text-indigo-700 dark:text-indigo-200"
+      >Tailwind</span
+    >
+  </h2>
+  <div class="p-2 flex flex-wrap gap-2">
+    <button mat-raised-button color="primary" (click)="switchMapFn()">SwitchMap</button>
+    <button mat-raised-button (click)="exhaustMap()">ExhaustMap</button>
+    <button mat-raised-button (click)="concatMapFn()">ConcatMap</button>
+    <button mat-raised-button (click)="mergeMapFn()">MergeMap</button>
   </div>
 
   <div class="p-2">
@@ -12,7 +18,7 @@
     <p class="muted">{{ details.body }}</p>
   </div>
 
-  <table>
+  <table class="rounded-lg overflow-hidden shadow-sm">
     <thead>
       <th class="min-width-50">ID</th>
       <th class="min-width-50 text-left">Title</th>

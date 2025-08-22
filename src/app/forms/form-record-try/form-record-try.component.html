@@ -1,20 +1,20 @@
 <section class="card">
   <h2>FormRecord Try</h2>
   <div class="p-2">
-    <button class="btn btn-primary" (click)="check()">Print form value</button>
+    <button mat-raised-button color="primary" (click)="check()">Print form value</button>
   </div>
 
   <form [formGroup]="addresses">
     <div *ngFor="let data of addresses.controls | keyvalue" class="p-2">
-      <label>
-        <input type="checkbox" [formControlName]="data.key" name="checkbox" />
-        <span class="muted">{{ data.key }}</span>
-      </label>
+      <mat-checkbox [formControlName]="data.key">{{ data.key }}</mat-checkbox>
     </div>
   </form>
 
-  <div class="p-2">
-    <input type="text" #inputRef placeholder="New control name" />
-    <button class="btn btn-light" (click)="addControl(inputRef.value)">Add control</button>
+  <div class="p-2 flex items-center gap-2">
+    <mat-form-field appearance="outline" class="w-64">
+      <mat-label>New control name</mat-label>
+      <input matInput type="text" #inputRef />
+    </mat-form-field>
+    <button mat-raised-button (click)="addControl(inputRef.value)">Add control</button>
   </div>
 </section>

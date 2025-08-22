@@ -2,12 +2,16 @@
   <h2>Linked Signal</h2>
   <div class="m-2">
     <div class="m-2">
-      <label for="fahrenheitInput">Change Fahrenheit:</label>
-      <input id="fahrenheitInput" type="text" [(ngModel)]="fahrenheit" />
+      <mat-form-field appearance="outline" class="w-64">
+        <mat-label>Change Fahrenheit</mat-label>
+        <input matInput id="fahrenheitInput" type="number" [(ngModel)]="fahrenheit" />
+      </mat-form-field>
     </div>
     <div class="m-2">
-      <label for="celsiusInput">Change Celsius:</label>
-      <input id="celsiusInput" type="text" [(ngModel)]="celsius" />
+      <mat-form-field appearance="outline" class="w-64">
+        <mat-label>Change Celsius</mat-label>
+        <input matInput id="celsiusInput" type="number" [(ngModel)]="celsius" />
+      </mat-form-field>
     </div>
   </div>
 

@@ -1,12 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
 import { Router, RouterModule } from '@angular/router';
 
 import { isComp1, toggleComp1 } from './same.route';
 
 @Component({
   selector: 'app-same-route',
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, MatButtonModule],
   templateUrl: './same-route.component.html',
   styleUrls: ['./same-route.component.scss'],
 })

@@ -4,14 +4,16 @@
     It seems the pipe template takes less time called but may be there is more memory consumption
     (Need to check)
   </p>
-  <div class="font-bold text-red-500">Don’t go for pipe (the scripting takes too long)</div>
+  <div class="font-bold text-red-500 bg-red-50 dark:bg-transparent rounded px-2 inline-block">
+    Don’t go for pipe (the scripting takes too long)
+  </div>
 
   <div class="p-2">
     See the console to get how many times pipe had been called. Number of times called -
     {{ this.insideFun }}
   </div>
   <div class="p-2">
-    <button class="btn btn-primary" (click)="test()">Check function call count</button>
+    <button mat-raised-button color="primary" (click)="test()">Check function call count</button>
   </div>
   <br />
   <div>

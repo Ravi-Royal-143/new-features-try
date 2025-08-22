@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
 import {
   concatMap,
   exhaustMap,
@@ -21,7 +22,7 @@ interface PostRes {
 
 @Component({
   selector: 'app-maps',
-  imports: [CommonModule],
+  imports: [CommonModule, MatButtonModule],
   // TODO: `HttpClientModule` should not be imported into a component directly.
   // Please refactor the code to add `provideHttpClient()` call to the provider list in the
   // application bootstrap logic and remove the `HttpClientModule` import from this component.

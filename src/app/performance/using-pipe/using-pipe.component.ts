@@ -1,12 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
 
 import { GetLabelPipe } from './get-label.pipe';
 import { LabelValue } from './using-pipe';
 
 @Component({
   selector: 'app-using-pipe',
-  imports: [CommonModule, GetLabelPipe],
+  imports: [CommonModule, GetLabelPipe, MatButtonModule],
   templateUrl: './using-pipe.component.html',
   styleUrls: ['./using-pipe.component.scss'],
 })

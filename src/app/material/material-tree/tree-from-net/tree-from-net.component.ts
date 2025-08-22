@@ -3,7 +3,9 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
 import { MatTreeModule, MatTreeNestedDataSource } from '@angular/material/tree';
 import { of } from 'rxjs';
 
@@ -13,7 +15,15 @@ import { TreeFunctionService } from './tree-function.service';
 
 @Component({
   selector: 'app-tree-from-net',
-  imports: [CommonModule, MatTreeModule, MatIconModule, MatButtonModule, FormsModule],
+  imports: [
+    CommonModule,
+    MatTreeModule,
+    MatIconModule,
+    MatButtonModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+  ],
   templateUrl: './tree-from-net.component.html',
   styleUrls: ['./tree-from-net.component.scss'],
 })
