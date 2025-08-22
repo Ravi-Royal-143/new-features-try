@@ -13,9 +13,11 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "fix:prettier": "prettier --write .",
-    "fix:lint:strict": "eslint -c ./eslint.strict.config.js \"**/*.{ts,html}\" --fix",
+    "fix:lint:strict": "ng lint --config=eslint.strict.config.js --fix",
     "fix:all": "npm run fix:prettier && npm run fix:lint:strict",
-    "check:all": "npm run format:check && npm run lint:strict",
+    "check:all": "npm run build && npm run test && npm run lint",
+    "build:gh-pages": "ng build --configuration production --base-href /new-features-try/",
+    "serve:gh-pages": "ng build --configuration production --base-href /new-features-try/ && npx http-server dist/test -p 4201",
     "prepare": "husky",
     "lint:strict": "eslint -c ./eslint.strict.config.js \"**/*.{ts,html}\"",
     "precommit": "lint-staged"
