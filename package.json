@@ -10,7 +10,11 @@
     "test": "ng test",
     "lint": "ng lint",
     "lint:fix": "ng lint --fix",
-    "prepare": "husky"
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "prepare": "husky",
+    "lint:strict": "eslint -c ./eslint.strict.config.js \"**/*.{ts,html}\"",
+    "precommit": "lint-staged"
   },
   "private": true,
   "dependencies": {
@@ -36,6 +40,11 @@
     "@types/jasmine": "~4.3.0",
     "angular-eslint": "19.0.2",
     "eslint": "^9.16.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-promise": "^7.2.1",
+    "eslint-plugin-sonarjs": "^3.0.4",
+    "eslint-plugin-unicorn": "^60.0.0",
     "husky": "^9.1.7",
     "jasmine-core": "~4.5.0",
     "karma": "~6.4.0",
@@ -43,7 +52,18 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
+    "lint-staged": "^15.2.10",
+    "prettier": "^3.6.2",
     "typescript": "~5.6.3",
     "typescript-eslint": "8.18.0"
+  },
+  "lint-staged": {
+    "*.{ts,html}": [
+      "prettier --write",
+      "eslint -c ./eslint.strict.config.js --fix"
+    ],
+    "*.{scss,css,md,json,yml,yaml}": [
+      "prettier --write"
+    ]
   }
 }
