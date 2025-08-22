@@ -1,12 +1,20 @@
-<p>form-record-try works!</p>
-<button (click)="check()">check form value(print in console)</button>
-<br />
-<form [formGroup]="addresses">
-  <div *ngFor="let data of addresses.controls | keyvalue">
-    {{ data.key | json }}
-    <input type="checkbox" [formControlName]="data.key" name="checkbox" />
+<section class="card">
+  <h2>FormRecord Try</h2>
+  <div class="p-2">
+    <button class="btn btn-primary" (click)="check()">Print form value</button>
   </div>
-</form>
-<br />
-<input type="text" #inputRef />
-<button (click)="addControl(inputRef.value)">add Control to form record</button>
+
+  <form [formGroup]="addresses">
+    <div *ngFor="let data of addresses.controls | keyvalue" class="p-2">
+      <label>
+        <input type="checkbox" [formControlName]="data.key" name="checkbox" />
+        <span class="muted">{{ data.key }}</span>
+      </label>
+    </div>
+  </form>
+
+  <div class="p-2">
+    <input type="text" #inputRef placeholder="New control name" />
+    <button class="btn btn-light" (click)="addControl(inputRef.value)">Add control</button>
+  </div>
+</section>

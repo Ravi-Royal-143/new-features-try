@@ -1,4 +1,11 @@
-<div class="mb-2">
-  <a [routerLink]="'routes'" class="font-bold text-lg">All routes</a>
-</div>
-<router-outlet></router-outlet>
+<header class="app-toolbar">
+  <div class="toolbar-title">🚀 Angular New Features Playground</div>
+  <nav>
+    <a [routerLink]="'routes'" class="btn btn-light">All routes</a>
+  </nav>
+  <button class="theme-toggle" (click)="toggleTheme()">Toggle theme</button>
+</header>
+
+<main class="app-content fade-in-up">
+  <router-outlet></router-outlet>
+</main>

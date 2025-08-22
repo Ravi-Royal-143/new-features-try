@@ -1,21 +1,217 @@
-/* You can add global styles to this file, and also import other style files */
+/* Global colorful theme (lightweight and accessible) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* Palette */
+  --c-primary-1: #667eea; /* indigo */
+  --c-primary-2: #764ba2; /* purple */
+  --c-accent-1: #4fd1c5; /* teal */
+  --c-surface: #ffffff;
+  --c-surface-2: #f7fafc; /* light gray */
+  --c-text: #1a202c; /* slate-900 */
+  --c-text-muted: #4a5568; /* slate-600 */
+  --c-border: #e2e8f0; /* slate-200 */
+
+  /* Effects */
+  --g-primary: linear-gradient(135deg, var(--c-primary-1) 0%, var(--c-primary-2) 100%);
+  --g-bg: linear-gradient(135deg, #eef2ff 0%, #faf5ff 100%);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
 html,
 body {
   height: 100%;
 }
 body {
   margin: 0;
-  font-family: Roboto, 'Helvetica Neue', sans-serif;
+  font-family: 'Inter', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  color: var(--c-text);
+  background: var(--g-bg) fixed;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.numbered-list {
-  counter-reset: link-counter;
-  a {
-    display: block;
+/* Dark theme (scoped with class on body) */
+body.theme-dark {
+  --c-surface: #0f172a;
+  --c-surface-2: #111827;
+  --c-text: #e5e7eb;
+  --c-text-muted: #94a3b8;
+  --c-border: #1f2937;
+  --g-bg: linear-gradient(135deg, #0b1020 0%, #151a2b 100%);
+}
+
+/* Top toolbar */
+.app-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--g-primary);
+  color: #fff;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: var(--shadow-sm);
+}
+.toolbar-title {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+.theme-toggle {
+  background: transparent;
+  border: 1px solid var(--c-border);
+  color: inherit;
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Main content wrapper */
+.app-content {
+  max-width: 1200px;
+  margin: 16px auto;
+  padding: 16px;
+}
+
+/* Card-like section (use on containers if needed) */
+.card {
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: var(--shadow-sm);
+}
+.card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--c-surface);
+}
+thead th {
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 1px solid var(--c-border);
+  padding: 8px;
+}
+tbody td {
+  border-bottom: 1px solid var(--c-border);
+  padding: 8px;
+}
+tbody tr:hover {
+  background: rgba(102, 126, 234, 0.06);
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+.btn:hover {
+  transform: translateY(-1px);
+}
+.btn:active {
+  transform: translateY(0);
+}
+.btn-primary {
+  color: #fff;
+  background: var(--g-primary);
+  box-shadow: var(--shadow-sm);
+}
+.btn-light {
+  color: var(--c-text);
+  background: #fff;
+  border: 1px solid var(--c-border);
+}
+
+/* Links */
+a {
+  color: var(--c-primary-1);
+  text-decoration: none;
+  font-weight: 500;
+}
+a:hover {
+  color: var(--c-primary-2);
+}
+
+/* Utility containers */
+.content-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px;
+}
+.muted {
+  color: var(--c-text-muted);
+}
+
+/* Gentle entrance */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
+.fade-in-up {
+  animation: fadeInUp 0.35s ease-out;
+}
 
+/* Enhanced numbered list (if used) */
+.numbered-list {
+  counter-reset: link-counter;
+  padding: 8px 0;
+}
+.numbered-list a {
+  display: block;
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+.numbered-list a:hover {
+  background: rgba(102, 126, 234, 0.08);
+}
 .numbered-list a::before {
   counter-increment: link-counter;
-  content: counter(link-counter) ' => ';
+  content: counter(link-counter, decimal-leading-zero) ' · ';
+  font-weight: 700;
+  margin-right: 6px;
+  background: var(--g-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Accessibility */
+:focus {
+  outline: 3px solid rgba(102, 126, 234, 0.45);
+  outline-offset: 2px;
+}
+
+/* Mobile tweaks */
+@media (max-width: 768px) {
+  .app-content {
+    padding: 12px;
+    margin: 12px auto;
+  }
+  .toolbar-title {
+    font-size: 16px;
+  }
 }

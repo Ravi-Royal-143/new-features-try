@@ -9,4 +9,8 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'test';
+  toggleTheme() {
+    const body = document.body;
+    body.classList.toggle('theme-dark');
+  }
 }

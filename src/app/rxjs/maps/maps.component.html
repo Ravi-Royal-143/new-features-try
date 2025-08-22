@@ -1,29 +1,33 @@
-<div class="p-2">
-  <button (click)="switchMapFn()">switch Map</button>
-  <button (click)="exhaustMap()">exhaust Map</button>
-  <button (click)="concatMapFn()">concat Map</button>
-  <button (click)="mergeMapFn()">Merge Map</button>
-</div>
+<section class="card">
+  <h2>RxJS: Mapping Operators</h2>
+  <div class="p-2">
+    <button class="btn btn-primary" (click)="switchMapFn()">SwitchMap</button>
+    <button class="btn btn-light" (click)="exhaustMap()">ExhaustMap</button>
+    <button class="btn btn-light" (click)="concatMapFn()">ConcatMap</button>
+    <button class="btn btn-light" (click)="mergeMapFn()">MergeMap</button>
+  </div>
 
-<div class="p-2">
-  <h1>{{ details.title }}</h1>
-  {{ details.body }}
-</div>
-<table>
-  <thead>
-    <th class="min-width-50">ID</th>
-    <th class="min-width-50 text-left">Title</th>
-  </thead>
-  <tbody>
-    @for (tableData of tableDatas; track tableData.id) {
-      <tr>
-        <td class="min-width-50">{{ tableData.id }}</td>
-        <td class="min-width-50">{{ tableData.title }}</td>
-      </tr>
-    } @empty {
-      <tr>
-        <td colspan="2">No Data Found</td>
-      </tr>
-    }
-  </tbody>
-</table>
+  <div class="p-2">
+    <h3>{{ details.title }}</h3>
+    <p class="muted">{{ details.body }}</p>
+  </div>
+
+  <table>
+    <thead>
+      <th class="min-width-50">ID</th>
+      <th class="min-width-50 text-left">Title</th>
+    </thead>
+    <tbody>
+      @for (tableData of tableDatas; track tableData.id) {
+        <tr>
+          <td class="min-width-50">{{ tableData.id }}</td>
+          <td class="min-width-50">{{ tableData.title }}</td>
+        </tr>
+      } @empty {
+        <tr>
+          <td colspan="2">No Data Found</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</section>

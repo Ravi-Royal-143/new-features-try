@@ -1,12 +1,19 @@
-<div>
+<section class="card">
+  <h2>Linked Signal</h2>
   <div class="m-2">
-    <div class="m-2">Change Farenheit: <input type="text" [(ngModel)]="fahrenheit" /></div>
-    <div class="m-2">Change Celcius: <input type="text" [(ngModel)]="celsius" /></div>
+    <div class="m-2">
+      <label for="fahrenheitInput">Change Fahrenheit:</label>
+      <input id="fahrenheitInput" type="text" [(ngModel)]="fahrenheit" />
+    </div>
+    <div class="m-2">
+      <label for="celsiusInput">Change Celsius:</label>
+      <input id="celsiusInput" type="text" [(ngModel)]="celsius" />
+    </div>
   </div>
 
   <div class="m-2">
     <div class="m-2">
-      <span class="font-medium"> Farenheit: </span>
+      <span class="font-medium"> Fahrenheit: </span>
       {{ fahrenheit() }}
     </div>
     <div class="m-2">
@@ -17,13 +24,7 @@
 
   <span class="font-medium underline">Instructions:</span>
   <ul>
-    <li>
-      If celsius had changed, farenheit will be updated using the linked signal through computation
-      logic.
-    </li>
-    <li>
-      If we change farenheit, then farenheit no convertion occurs in value. Same value will be
-      displayed/updated.
-    </li>
+    <li>If celsius changes, fahrenheit updates using linked signal computation logic.</li>
+    <li>Changing fahrenheit directly does not convert; the value is displayed as-is.</li>
   </ul>
-</div>
+</section>

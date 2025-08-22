@@ -1,3 +1,9 @@
-<p>same-route works!</p>
-<button (click)="toggleComponent()">Toggle Component for the same URL</button>
-<router-outlet></router-outlet>
+<section class="card">
+  <h2>Same Route Demo</h2>
+  <div class="p-2">
+    <button class="btn btn-primary" (click)="toggleComponent()">
+      Toggle Component for the same URL
+    </button>
+  </div>
+  <router-outlet></router-outlet>
+</section>

@@ -1,10 +1,10 @@
-<p>main-form works!</p>
-<form [formGroup]="form">
-  <br />
-  <app-sub-form-with-control-inside [groupName]="'address1'"></app-sub-form-with-control-inside>
-  <br />
-  <app-sub-reusable-form [groupName]="'address'"></app-sub-reusable-form>
-</form>
-
-<br />
-<button (click)="print()">print form</button>
+<section class="card">
+  <h2>Main Form</h2>
+  <form [formGroup]="form">
+    <app-sub-form-with-control-inside [groupName]="'address1'"></app-sub-form-with-control-inside>
+    <app-sub-reusable-form [groupName]="'address'"></app-sub-reusable-form>
+  </form>
+  <div class="p-2">
+    <button class="btn btn-primary" (click)="print()">Print form</button>
+  </div>
+</section>

@@ -1,14 +1,14 @@
-<div>
-  <input type="text" [(ngModel)]="query" />
-  <br />
-  {{ computedQuery() }}
-  <br />
-  <br />
-  <input type="text" [(ngModel)]="search" />
-  <br />
-  <br />
-  {{ computedSearch() }}
-  <br />
-  <br />
-  {{ consolidatedQueryandSearch() }}
-</div>
+<section class="card">
+  <h2>Basic Signal</h2>
+  <div class="p-2">
+    <label for="queryInput">Query</label>
+    <input id="queryInput" type="text" [(ngModel)]="query" />
+  </div>
+  <div class="p-2 muted">{{ computedQuery() }}</div>
+  <div class="p-2">
+    <label for="searchInput">Search</label>
+    <input id="searchInput" type="text" [(ngModel)]="search" />
+  </div>
+  <div class="p-2 muted">{{ computedSearch() }}</div>
+  <div class="p-2"><strong>Combined:</strong> {{ consolidatedQueryandSearch() }}</div>
+</section>

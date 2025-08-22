@@ -1,15 +1,22 @@
-<p>signal-observable works!</p>
+<section class="card">
+  <h2>Signal + Observable</h2>
+  <div class="p-2">
+    Signal: <strong>{{ signal() }}</strong>
+  </div>
+  <div class="p-2">
+    Observable (async): <strong>{{ obsSignal$ | async }}</strong>
+  </div>
 
-{{ signal() }}
-<br />
-{{ obsSignal$ | async }}
+  @if (signal() % 2 === 0) {
+    <p class="p-2">Signal is even</p>
+  } @else {
+    <p class="p-2">Signal is odd</p>
+  }
 
-@if (signal() % 2 === 0) {
-  <p>Signal is even</p>
-} @else {
-  <p>Signal is odd</p>
-}
-
-@for (item of items; track $index) {
-  <p>{{ item }}</p>
-}
+  <div class="p-2">
+    <h3>Items</h3>
+    @for (item of items; track $index) {
+      <p class="muted">{{ item }}</p>
+    }
+  </div>
+</section>

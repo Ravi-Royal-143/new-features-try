@@ -1,19 +1,26 @@
-<p>using-pipe works!</p>
+<section class="card">
+  <h2>Pipe vs Function</h2>
+  <p>
+    It seems the pipe template takes less time called but may be there is more memory consumption
+    (Need to check)
+  </p>
+  <div class="font-bold text-red-500">Don’t go for pipe (the scripting takes too long)</div>
 
-It seems the pipe template takes less time called but may be there is more memory consumption (Need
-to check)
-<div class="font-bold text-red-500">Dont go for pipe (the scripting takes too long)</div>
-
-See the console to get how many times pipe had been called Number of times called -
-{{ this.insideFun }}
-<button (click)="test()">Click to see the number of times called function</button>
-<br />
-From Local Funtion:
-<span *ngFor="let data of arrayDatas">
-  {{ getLabelLocalFn(data) }}
-</span>
-<br />
-From Pipe:
-<span *ngFor="let data of arrayDatas">
-  {{ getLabel | getLabelPipe: data }}
-</span>
+  <div class="p-2">
+    See the console to get how many times pipe had been called. Number of times called -
+    {{ this.insideFun }}
+  </div>
+  <div class="p-2">
+    <button class="btn btn-primary" (click)="test()">Check function call count</button>
+  </div>
+  <br />
+  <div>
+    <strong>From Local Function:</strong>
+    <span *ngFor="let data of arrayDatas"> {{ getLabelLocalFn(data) }} </span>
+  </div>
+  <br />
+  <div>
+    <strong>From Pipe:</strong>
+    <span *ngFor="let data of arrayDatas"> {{ getLabel | getLabelPipe: data }} </span>
+  </div>
+</section>
