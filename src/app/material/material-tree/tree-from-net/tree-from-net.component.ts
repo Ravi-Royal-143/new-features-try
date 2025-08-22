@@ -28,6 +28,7 @@ import { TreeFunctionService } from './tree-function.service';
   styleUrls: ['./tree-from-net.component.scss'],
 })
 export class TreeFromNetComponent implements OnInit {
+  // eslint-disable-next-line @typescript-eslint/no-deprecated
   nestedTreeControl: NestedTreeControl<TreeData>;
   nestedDataSource: MatTreeNestedDataSource<TreeData>;
 
@@ -37,6 +38,7 @@ export class TreeFromNetComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    // eslint-disable-next-line @typescript-eslint/no-deprecated
     this.nestedTreeControl = new NestedTreeControl<TreeData>((node: TreeData) => node.Children);
     this.nestedDataSource = new MatTreeNestedDataSource();
     this.dataService._dataChange.subscribe((data) => (this.nestedDataSource.data = data));

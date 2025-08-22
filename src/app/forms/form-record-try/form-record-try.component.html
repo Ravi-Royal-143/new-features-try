@@ -13,8 +13,15 @@
   <div class="p-2 flex items-center gap-2">
     <mat-form-field appearance="outline" class="input-sm">
       <mat-label>New control name</mat-label>
-      <input matInput type="text" #inputRef />
+      <input matInput type="text" #inputRef required />
+      <mat-hint>e.g., Andrew</mat-hint>
     </mat-form-field>
-    <button mat-raised-button (click)="addControl(inputRef.value)">Add control</button>
+    <button
+      mat-raised-button
+      (click)="addControl(inputRef.value)"
+      [disabled]="!(inputRef.value && inputRef.value.trim().length)"
+    >
+      Add control
+    </button>
   </div>
 </section>

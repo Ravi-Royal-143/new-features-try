@@ -27,7 +27,9 @@ export class FormRecordTryComponent implements OnInit {
   }
 
   addControl(controlName: string) {
-    this.addresses.addControl(controlName, new FormControl(false));
+    const name = String(controlName).trim();
+    if (!name) return;
+    this.addresses.addControl(name, new FormControl(false));
   }
 
   check() {

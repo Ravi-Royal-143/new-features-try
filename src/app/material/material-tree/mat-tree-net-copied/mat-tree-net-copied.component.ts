@@ -39,6 +39,7 @@ import { EditNodeComponent } from './theme/edit-node/edit-node.component';
   ],
 })
 export class MatTreeNetCopiedComponent implements OnInit {
+  // eslint-disable-next-line @typescript-eslint/no-deprecated
   nestedTreeControl: NestedTreeControl<TreeData>;
   nestedDataSource: MatTreeNestedDataSource<TreeData>;
 
@@ -48,6 +49,7 @@ export class MatTreeNetCopiedComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    // eslint-disable-next-line @typescript-eslint/no-deprecated
     this.nestedTreeControl = new NestedTreeControl<TreeData>(this._getChildren);
     this.nestedDataSource = new MatTreeNestedDataSource();
     this.dataService._dataChange.subscribe(

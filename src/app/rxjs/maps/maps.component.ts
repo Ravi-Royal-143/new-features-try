@@ -7,10 +7,10 @@ import {
   exhaustMap,
   filter,
   interval,
-  mergeMap,
   Subscription,
   switchMap,
   take,
+  mergeMap,
 } from 'rxjs';
 
 interface PostRes {
@@ -44,25 +44,31 @@ export class MapsComponent implements OnInit {
     this.mergeMapFn();
   }
 
-  fetchDetails(mapType = mergeMap) {
+  private fetchDetails(op: 'merge' | 'switch' | 'concat' | 'exhaust') {
     if (this.sub$ && !this.sub$.closed) {
       this.sub$.unsubscribe();
     }
     this.tableDatas = [];
-    const postlds = interval(1).pipe(
+    const postIds$ = interval(1).pipe(
       filter((val) => val > 0),
       take(100),
     );
-    this.sub$ = postlds
-      .pipe(
-        mapType((id) => {
-          return this.http.get<PostRes>(`https://jsonplaceholder.typicode.com/posts/${id}`);
-        }),
-      )
-      .subscribe((resposne: PostRes) => {
-        console.log(resposne);
-        this.tableDatas.push(resposne);
-      });
+    const projector = (id: number) =>
+      this.http.get<PostRes>(`https://jsonplaceholder.typicode.com/posts/${id}`);
+
+    const operator =
+      op === 'merge'
+        ? mergeMap(projector)
+        : op === 'switch'
+          ? switchMap(projector)
+          : op === 'concat'
+            ? concatMap(projector)
+            : exhaustMap(projector);
+
+    this.sub$ = postIds$.pipe(operator).subscribe((response: PostRes) => {
+      console.log(response);
+      this.tableDatas.push(response);
+    });
   }
 
   mergeMapFn() {
@@ -70,7 +76,7 @@ export class MapsComponent implements OnInit {
       title: 'Merge Map',
       body: 'Executes in order but the subscription will takes which one comes first (not in the order of which it values came to it).  so the values inside subscription is not the last one which is subscribed, the one which comes last',
     };
-    this.fetchDetails(mergeMap);
+    this.fetchDetails('merge');
   }
 
   switchMapFn() {
@@ -78,7 +84,7 @@ export class MapsComponent implements OnInit {
       title: 'Switch Map',
       body: 'cancels all previous subscription and hold the last once ',
     };
-    this.fetchDetails(switchMap);
+    this.fetchDetails('switch');
   }
 
   concatMapFn() {
@@ -86,7 +92,7 @@ export class MapsComponent implements OnInit {
       title: 'Concat Map',
       body: 'All values will be executed one by one, if one ends then only next value will starts(in order). None of the  values will be ignored. ',
     };
-    this.fetchDetails(concatMap);
+    this.fetchDetails('concat');
   }
 
   exhaustMap() {
@@ -94,6 +100,6 @@ export class MapsComponent implements OnInit {
       title: 'Exhaust Map',
       body: 'all the upcoming values will be ignored till the current subscription ends, if the current sub ends then next one which is in queue will be executed(inbetween values will be ignored)',
     };
-    this.fetchDetails(exhaustMap);
+    this.fetchDetails('exhaust');
   }
 }

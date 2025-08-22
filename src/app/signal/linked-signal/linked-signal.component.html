@@ -5,12 +5,14 @@
       <mat-form-field appearance="outline" class="w-64">
         <mat-label>Change Fahrenheit</mat-label>
         <input matInput id="fahrenheitInput" type="number" [(ngModel)]="fahrenheit" />
+        <mat-hint>Linked output shown below</mat-hint>
       </mat-form-field>
     </div>
     <div class="m-2">
       <mat-form-field appearance="outline" class="w-64">
         <mat-label>Change Celsius</mat-label>
         <input matInput id="celsiusInput" type="number" [(ngModel)]="celsius" />
+        <mat-hint>Updates fahrenheit via linked signal</mat-hint>
       </mat-form-field>
     </div>
   </div>

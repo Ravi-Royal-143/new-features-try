@@ -14,6 +14,7 @@ import { FoodNode, TREE_DATA } from './mat.tree';
   styleUrls: ['./mat-tree-parent-mine-custom.component.scss'],
 })
 export class MatTreeParentMineCustomComponent {
+  // eslint-disable-next-line @typescript-eslint/no-deprecated
   treeControl = new NestedTreeControl<FoodNode>((node) => node.children);
   dataSource = new MatTreeNestedDataSource<FoodNode>();
 

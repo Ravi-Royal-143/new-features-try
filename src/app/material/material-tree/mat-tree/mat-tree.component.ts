@@ -27,6 +27,7 @@ import { FoodNode, TREE_DATA } from './mat-tree';
 })
 export class MatTreeComponent {
   @ViewChild(MatTree) tree: MatTree<FoodNode>;
+  // eslint-disable-next-line @typescript-eslint/no-deprecated
   treeControl = new NestedTreeControl<FoodNode>((node: FoodNode) => node.children ?? []);
   dataSource: MatTreeNestedDataSource<FoodNode> = new MatTreeNestedDataSource<FoodNode>();
   showTree = true;

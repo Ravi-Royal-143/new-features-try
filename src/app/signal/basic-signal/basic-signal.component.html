@@ -4,6 +4,7 @@
     <mat-form-field appearance="outline" class="w-full">
       <mat-label>Query</mat-label>
       <input matInput id="queryInput" type="text" [(ngModel)]="query" />
+      <mat-hint align="start">Type to update the query signal</mat-hint>
     </mat-form-field>
   </div>
   <div class="p-2 muted">{{ computedQuery() }}</div>
@@ -11,6 +12,7 @@
     <mat-form-field appearance="outline" class="w-full">
       <mat-label>Search</mat-label>
       <input matInput id="searchInput" type="text" [(ngModel)]="search" />
+      <mat-hint align="start">Type to update the search signal</mat-hint>
     </mat-form-field>
   </div>
   <div class="p-2 muted">{{ computedSearch() }}</div>
