@@ -29,13 +29,13 @@ jobs:
         run: npm run build --if-present -- --configuration production
 
       - name: Configure Pages
-        uses: actions/configure-pages@v3
+        uses: actions/configure-pages@v4
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v3
         with:
           # angular.json outputPath is dist/test
           path: dist/test
 
       - name: Deploy to Pages
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v4
