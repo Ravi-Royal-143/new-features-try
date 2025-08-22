@@ -151,11 +151,12 @@ a:hover {
 }
 
 /* Form fields - base styling to make inputs and selects look good in both themes */
-input[type='text'],
-input[type='number'],
-input[type='email'],
-input[type='password'],
-textarea,
+/* Exclude Angular Material inputs from global styling */
+input[type='text']:not(.mat-mdc-input-element),
+input[type='number']:not(.mat-mdc-input-element),
+input[type='email']:not(.mat-mdc-input-element),
+input[type='password']:not(.mat-mdc-input-element),
+textarea:not(.mat-mdc-input-element),
 select {
   width: 100%;
   box-sizing: border-box;
@@ -199,6 +200,18 @@ body.theme-dark .mat-mdc-raised-button.mat-mdc-button-base {
 body.theme-dark .mat-mdc-raised-button.mat-primary {
   --mdc-protected-button-label-text-color: #ffffff;
 }
+
+/* Compact density for Material fields/buttons */
+.mat-mdc-form-field {
+  --mat-form-field-container-height: 36px; /* default ~56px; this makes fields slimmer */
+  --mat-form-field-container-vertical-padding: 8px;
+  --mdc-shape-small: 8px; /* rounded corners consistent with theme */
+}
+.mat-mdc-raised-button .mdc-button__label,
+.mat-mdc-button .mdc-button__label,
+.mat-mdc-outlined-button .mdc-button__label {
+  line-height: 1;
+}
 body.theme-dark .mat-mdc-outlined-button.mat-mdc-button-base {
   --mdc-outlined-button-outline-color: #334155; /* slate-700 */
   --mdc-outlined-button-label-text-color: #e5e7eb; /* light text */
@@ -215,6 +228,11 @@ body.theme-dark .mat-mdc-button.mat-mdc-button-base {
 }
 .muted {
   color: var(--c-text-muted);
+}
+
+/* Small input helper for short fields */
+.input-sm {
+  width: 220px;
 }
 
 /* Gentle entrance */
