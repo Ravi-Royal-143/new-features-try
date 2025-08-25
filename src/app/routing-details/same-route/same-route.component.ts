@@ -13,6 +13,9 @@ import { isComp1, toggleComp1 } from './same.route';
 })
 export class SameRouteComponent {
   constructor(private router: Router) {}
+  get isActive(): boolean {
+    return isComp1.value;
+  }
   toggleComponent() {
     toggleComp1();
     console.log('is', isComp1.value);

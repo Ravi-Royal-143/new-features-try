@@ -174,6 +174,35 @@ body.theme-dark tbody td {
   border: 1px solid var(--c-border);
 }
 
+/* Reusable selected-state helpers for Material raised buttons */
+.btn-selectable {
+  transition:
+    background-color 0.15s ease,
+    box-shadow 0.15s ease,
+    transform 0.05s ease;
+}
+.mat-mdc-raised-button.btn-selected,
+button.mat-mdc-raised-button.btn-selected,
+.mat-mdc-raised-button[aria-pressed='true'],
+button.mat-mdc-raised-button[aria-pressed='true'] {
+  border: 1px solid var(--c-border-strong);
+  box-shadow:
+    0 0 0 2px rgba(102, 126, 234, 0.25),
+    0 6px 18px rgba(0, 0, 0, 0.15);
+  transform: translateY(-1px);
+}
+body.theme-dark .mat-mdc-raised-button.btn-selected,
+body.theme-dark button.mat-mdc-raised-button.btn-selected,
+body.theme-dark .mat-mdc-raised-button[aria-pressed='true'],
+body.theme-dark button.mat-mdc-raised-button[aria-pressed='true'] {
+  border-color: #93a0ff;
+  background: rgba(124, 140, 249, 0.18) !important;
+  color: #e5e7eb;
+  box-shadow:
+    0 0 0 2px rgba(148, 163, 255, 0.35),
+    0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
 /* Links */
 a {
   color: var(--c-primary-1);

@@ -37,6 +37,7 @@ export class MapsComponent implements OnInit {
     title: '',
     body: '',
   };
+  activeOp: 'merge' | 'switch' | 'concat' | 'exhaust' = 'merge';
 
   constructor(private http: HttpClient) {}
 
@@ -48,6 +49,7 @@ export class MapsComponent implements OnInit {
     if (this.sub$ && !this.sub$.closed) {
       this.sub$.unsubscribe();
     }
+    this.activeOp = op;
     this.tableDatas = [];
     const postIds$ = interval(1).pipe(
       filter((val) => val > 0),

@@ -7,10 +7,42 @@
     >
   </h2>
   <div class="p-2 stack-sm">
-    <button mat-raised-button color="primary" (click)="switchMapFn()">SwitchMap</button>
-    <button mat-raised-button (click)="exhaustMap()">ExhaustMap</button>
-    <button mat-raised-button (click)="concatMapFn()">ConcatMap</button>
-    <button mat-raised-button (click)="mergeMapFn()">MergeMap</button>
+    <button
+      mat-raised-button
+      class="btn-selectable"
+      [class.btn-selected]="activeOp === 'switch'"
+      [attr.aria-pressed]="activeOp === 'switch'"
+      (click)="switchMapFn()"
+    >
+      SwitchMap
+    </button>
+    <button
+      mat-raised-button
+      class="btn-selectable"
+      [class.btn-selected]="activeOp === 'exhaust'"
+      [attr.aria-pressed]="activeOp === 'exhaust'"
+      (click)="exhaustMap()"
+    >
+      ExhaustMap
+    </button>
+    <button
+      mat-raised-button
+      class="btn-selectable"
+      [class.btn-selected]="activeOp === 'concat'"
+      [attr.aria-pressed]="activeOp === 'concat'"
+      (click)="concatMapFn()"
+    >
+      ConcatMap
+    </button>
+    <button
+      mat-raised-button
+      class="btn-selectable"
+      [class.btn-selected]="activeOp === 'merge'"
+      [attr.aria-pressed]="activeOp === 'merge'"
+      (click)="mergeMapFn()"
+    >
+      MergeMap
+    </button>
   </div>
 
   <div class="p-2">

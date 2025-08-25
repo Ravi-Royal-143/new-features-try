@@ -1,10 +1,23 @@
 <section class="card">
   <h2>Same Route Demo</h2>
   <div class="p-2 stack-sm">
-    <button mat-raised-button color="primary" (click)="toggleComponent()">
+    <button
+      mat-raised-button
+      color="primary"
+      class="btn-selectable"
+      [class.btn-selected]="isActive"
+      [attr.aria-pressed]="isActive"
+      (click)="toggleComponent()"
+    >
       Toggle Component for the same URL
     </button>
-    <button mat-raised-button (click)="toggleComponent()">
+    <button
+      mat-raised-button
+      class="btn-selectable"
+      [class.btn-selected]="!isActive"
+      [attr.aria-pressed]="!isActive"
+      (click)="toggleComponent()"
+    >
       Toggle to see to component switch in same route
     </button>
   </div>

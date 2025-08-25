@@ -1,7 +1,16 @@
 <section class="card">
   <div class="p-2 stack-sm">
     <button mat-raised-button (click)="print()">Console data</button>
-    <button mat-raised-button color="primary" (click)="toggleTree()">Toggle tree</button>
+    <button
+      mat-raised-button
+      color="primary"
+      class="btn-selectable"
+      [class.btn-selected]="showTree"
+      [attr.aria-pressed]="showTree"
+      (click)="toggleTree()"
+    >
+      Toggle tree
+    </button>
   </div>
   <div *ngIf="showTree" class="table-responsive">
     <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="example-tree" #tree>
