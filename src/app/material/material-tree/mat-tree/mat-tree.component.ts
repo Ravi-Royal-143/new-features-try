@@ -64,48 +64,22 @@ export class MatTreeComponent {
     node.edit = true;
   }
 
-  // addNodes(nodeData: FoodNode) {
-  //   nodeData.children?.push({
-  //     name: '',
-  //     edit: true
-  //   })
-  // }
-
   addNodeData(currentNode: FoodNode) {
     const newNode = {
       name: 'string',
       edit: true,
     };
-    // if (currentNode.children) {
-    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-    currentNode.children ? currentNode.children.push(newNode) : (currentNode.children = [newNode]);
+    if (currentNode.children) {
+      currentNode.children.push(newNode);
+    } else {
+      currentNode.children = [newNode];
+    }
     const newDataSource = new MatTreeNestedDataSource<FoodNode>();
     newDataSource.data = this.dataSource.data;
     this.dataSource = newDataSource;
     this.tree.renderNodeChanges(currentNode.children ?? []);
-    // this.tree.insertNode(this.dataSource.data, this.dataSource.data.length -1)
     this.treeControl.expand(currentNode);
-    // }
   }
-
-  // toggleNode(node: FoodNode) {
-  //   this.treeControl.toggle(node);
-  // }
-
-  // renderChanges() {
-  //   let data = this.dataSource.data;
-  //   (this.dataSource as any).data = null;
-  //   this.dataSource.data = data;
-
-  // }
-
-  // addNode(data: FoodNode, parentNode: FoodNode) {
-  //   if (!parentNode.children) {
-  //     parentNode.children = [];
-  //   }
-  //   parentNode.children.push(data);
-  //   this.treeControl.expand(parentNode);
-  // }
 
   saveNode(node: FoodNode) {
     node.edit = false;
