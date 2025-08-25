@@ -11,6 +11,7 @@
   --c-text: #1a202c; /* slate-900 */
   --c-text-muted: #4a5568; /* slate-600 */
   --c-border: #e2e8f0; /* slate-200 */
+  --c-border-strong: #cbd5e1; /* slate-300 */
 
   /* Effects */
   --g-primary: linear-gradient(135deg, var(--c-primary-1) 0%, var(--c-primary-2) 100%);
@@ -38,7 +39,8 @@ body.theme-dark {
   --c-surface-2: #0f172a;
   --c-text: #f3f4f6; /* near-white for contrast */
   --c-text-muted: #a5b4fc; /* lighter indigo-muted */
-  --c-border: #1f2937;
+  --c-border: #334155; /* slate-700 for visible borders */
+  --c-border-strong: #475569; /* slate-600 for emphasis */
   --g-bg: linear-gradient(135deg, #070b14 0%, #111827 100%);
 }
 
@@ -90,6 +92,24 @@ body.theme-dark {
   box-shadow: var(--shadow-md);
 }
 
+/* Dark mode: stronger separation for cards */
+body.theme-dark .card {
+  background: var(--c-surface-2);
+  border-color: var(--c-border-strong);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.04),
+    0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+/* Card section headers */
+.card h2 {
+  margin: 0 0 8px 0;
+}
+body.theme-dark .card h2 {
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--c-border);
+}
+
 /* Tables */
 table {
   width: 100%;
@@ -108,6 +128,18 @@ tbody td {
 }
 tbody tr:hover {
   background: rgba(102, 126, 234, 0.06);
+}
+
+/* Dark mode: clearer table delineation */
+body.theme-dark table {
+  border: 1px solid var(--c-border);
+}
+body.theme-dark thead th {
+  background: rgba(255, 255, 255, 0.04);
+  border-bottom-color: var(--c-border-strong);
+}
+body.theme-dark tbody td {
+  border-bottom-color: var(--c-border);
 }
 
 /* Buttons */
@@ -150,6 +182,14 @@ a {
 }
 a:hover {
   color: var(--c-primary-2);
+}
+
+/* Dark mode: link color tune for readability */
+body.theme-dark a {
+  color: #a5b4fc; /* indigo-200 */
+}
+body.theme-dark a:hover {
+  color: #c7d2fe; /* indigo-200/100 */
 }
 
 /* Form fields - base styling to make inputs and selects look good in both themes */
@@ -261,6 +301,12 @@ body.theme-dark .mat-mdc-button.mat-mdc-button-base {
   display: block;
   padding: 8px 12px;
   border-radius: 8px;
+  border: 1px solid var(--c-border);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.02) inset;
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
 }
 .numbered-list a:hover {
   background: rgba(102, 126, 234, 0.08);
@@ -274,6 +320,21 @@ body.theme-dark .mat-mdc-button.mat-mdc-button-base {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+}
+
+/* Dark mode: make list items pop with a stronger, clearer border */
+body.theme-dark .numbered-list a {
+  /* Slightly lighter than card background for contrast */
+  border-color: #6b7aa6; /* slate-500 with a blue tint */
+  border-width: 1.5px;
+  background: rgba(255, 255, 255, 0.035);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.08) inset,
+    0 1px 2px rgba(0, 0, 0, 0.25);
+}
+body.theme-dark .numbered-list a:hover {
+  background: rgba(124, 140, 249, 0.14);
+  border-color: #aab6ff;
 }
 
 /* Accessibility */

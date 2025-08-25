@@ -1,8 +1,5 @@
+/* Use global numbered-list styles; keep component overrides minimal */
 .numbered-list {
-  counter-reset: link-counter;
-}
-
-.numbered-list a::before {
-  counter-increment: link-counter;
-  content: counter(link-counter) ' => ';
+  /* spacing fine-tune within this component */
+  margin-top: 8px;
 }
