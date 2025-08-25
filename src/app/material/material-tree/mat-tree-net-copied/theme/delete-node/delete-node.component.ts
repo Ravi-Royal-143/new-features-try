@@ -4,6 +4,7 @@ import { TreeData } from '../../../mat-tree-net-copied/service/tree-data.model';
 
 @Component({
   selector: 'app-delete-node',
+  standalone: true,
   templateUrl: './delete-node.component.html',
   styleUrls: ['./delete-node.component.css'],
 })

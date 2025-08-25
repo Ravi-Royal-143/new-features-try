@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import { FormRecordTryComponent } from './form-record-try.component';
 
@@ -8,7 +9,7 @@ describe('FormRecordTryComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [FormRecordTryComponent],
+      imports: [FormRecordTryComponent, NoopAnimationsModule],
     }).compileComponents();
 
     fixture = TestBed.createComponent(FormRecordTryComponent);

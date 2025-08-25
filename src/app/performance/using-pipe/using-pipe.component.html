@@ -10,7 +10,11 @@
 
   <div class="p-2">
     See the console to get how many times pipe had been called. Number of times called -
-    {{ this.insideFun }}
+    @defer (on timer(0)) {
+      {{ insideFun }}
+    } @placeholder {
+      0
+    }
   </div>
   <div class="p-2">
     <button mat-raised-button color="primary" (click)="test()">Check function call count</button>

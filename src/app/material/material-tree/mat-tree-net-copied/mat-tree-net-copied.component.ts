@@ -2,6 +2,7 @@ import { NestedTreeControl } from '@angular/cdk/tree';
 import { Component, OnInit } from '@angular/core';
 import { MatIconButton } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatIcon } from '@angular/material/icon';
 import {
   MatNestedTreeNode,
@@ -23,9 +24,11 @@ import { EditNodeComponent } from './theme/edit-node/edit-node.component';
 
 @Component({
   selector: 'app-mat-tree-net-copied',
+  standalone: true,
   templateUrl: './mat-tree-net-copied.component.html',
   styleUrls: ['./mat-tree-net-copied.component.scss'],
   imports: [
+    MatDialogModule,
     AddNodeComponent,
     MatCardModule,
     MatTree,

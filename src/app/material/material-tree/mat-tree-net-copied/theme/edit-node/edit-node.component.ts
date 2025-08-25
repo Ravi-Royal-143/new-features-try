@@ -17,6 +17,7 @@ import { TreeData, DialogData } from '../../../mat-tree-net-copied/service/tree-
 
 @Component({
   selector: 'app-edit-node',
+  standalone: true,
   templateUrl: './edit-node.component.html',
   styleUrls: ['./edit-node.component.css'],
 })
@@ -54,6 +55,7 @@ export class EditNodeComponent {
 
 @Component({
   selector: 'app-edit-node-dialog',
+  standalone: true,
   templateUrl: '../node-dialog/node-dialog.html',
   imports: [
     CdkScrollable,

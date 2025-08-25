@@ -9,11 +9,11 @@
       class="theme-toggle"
       type="button"
       (click)="toggleTheme()"
-      [attr.aria-pressed]="isDark"
-      [color]="isDark ? 'primary' : undefined"
+      [attr.aria-pressed]="isDark()"
+      [color]="isDark() ? 'primary' : undefined"
       aria-label="Toggle color theme"
     >
-      <mat-icon class="mr-1">{{ isDark ? 'dark_mode' : 'light_mode' }}</mat-icon>
+      <mat-icon class="mr-1">{{ isDark() ? 'dark_mode' : 'light_mode' }}</mat-icon>
       <span class="hidden sm:inline">{{ uiText.nav.toggleTheme }}</span>
     </button>
   </nav>

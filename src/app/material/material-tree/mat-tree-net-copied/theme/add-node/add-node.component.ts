@@ -18,6 +18,7 @@ import { TreeData, DialogData } from '../../../mat-tree-net-copied/service/tree-
 
 @Component({
   selector: 'app-add-node',
+  standalone: true,
   templateUrl: './add-node.component.html',
   styleUrls: ['./add-node.component.css'],
   imports: [NgIf, MatButton],
@@ -59,6 +60,7 @@ export class AddNodeComponent {
 
 @Component({
   selector: 'app-new-node',
+  standalone: true,
   templateUrl: '../node-dialog/node-dialog.html',
   imports: [
     CdkScrollable,

@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
 
 import { RxjsComponent } from './rxjs.component';
 
@@ -9,6 +10,7 @@ describe('RxjsComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [RxjsComponent],
+      providers: [provideRouter([])],
     }).compileComponents();
 
     fixture = TestBed.createComponent(RxjsComponent);

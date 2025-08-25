@@ -20,9 +20,9 @@ export const MATERIALS_ROUTES: Routes = [
       },
       {
         path: ROUTE.material.matTreeNetCopied,
-        loadChildren: () =>
-          import('./material-tree/mat-tree-net-copied/mat-tree-net-copied.module').then(
-            (c) => c.MatTreeNetCopiedModule,
+        loadComponent: () =>
+          import('./material-tree/mat-tree-net-copied/mat-tree-net-copied.component').then(
+            (c) => c.MatTreeNetCopiedComponent,
           ),
       },
       {

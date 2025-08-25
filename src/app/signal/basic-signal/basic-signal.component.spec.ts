@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import { BasicSignalComponent } from './basic-signal.component';
 
@@ -8,7 +9,7 @@ describe('BasicSignalComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [BasicSignalComponent],
+      imports: [BasicSignalComponent, NoopAnimationsModule],
     }).compileComponents();
 
     fixture = TestBed.createComponent(BasicSignalComponent);
