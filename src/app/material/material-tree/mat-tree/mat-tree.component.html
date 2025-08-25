@@ -14,12 +14,15 @@
   </div>
   <div *ngIf="showTree" class="overflow-auto">
     <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="example-tree" #tree>
-      <!-- This is the tree node template for leaf nodes -->
-      <!-- There is inline padding applied to this node using styles.
-      This padding value depends on the mat-icon-button width. -->
-      <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle>
-        <ng-template *ngTemplateOutlet="editContainer; context: { $implicit: node }"></ng-template>
-      </mat-tree-node>
+      <!-- Leaf nodes (use nested node type to avoid mixing flat/nested) -->
+      <mat-nested-tree-node *matTreeNodeDef="let node">
+        <div class="mat-tree-node">
+          <button mat-icon-button disabled><span class="sr-only">leaf</span></button>
+          <ng-template
+            *ngTemplateOutlet="editContainer; context: { $implicit: node }"
+          ></ng-template>
+        </div>
+      </mat-nested-tree-node>
       <!-- This is the tree node template for expandable nodes -->
       <mat-nested-tree-node *matTreeNodeDef="let node; when: hasChild">
         <div class="mat-tree-node">
