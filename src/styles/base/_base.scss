@@ -1,0 +1,43 @@
+/* Base resets and root typography */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: 'Inter', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  color: var(--c-text);
+  background: var(--g-bg) fixed;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: var(--c-primary-1);
+  text-decoration: none;
+  font-weight: 500;
+}
+a:hover {
+  color: var(--c-primary-2);
+}
+body.theme-dark a {
+  color: #a5b4fc; /* indigo-200 */
+}
+body.theme-dark a:hover {
+  color: #c7d2fe; /* indigo-200/100 */
+}
+
+img,
+video,
+canvas,
+svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Accessibility */
+:focus {
+  outline: 3px solid rgba(102, 126, 234, 0.45);
+  outline-offset: 2px;
+}

@@ -1,0 +1,22 @@
+/* Design tokens: colors, effects, spacing scales */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* Palette */
+  --c-primary-1: #667eea; /* indigo */
+  --c-primary-2: #764ba2; /* purple */
+  --c-accent-1: #4fd1c5; /* teal */
+  --c-surface: #ffffff;
+  --c-surface-2: #f7fafc; /* light gray */
+  --c-text: #1a202c; /* slate-900 */
+  --c-text-muted: #4a5568; /* slate-600 */
+  --c-border: #e2e8f0; /* slate-200 */
+  --c-border-strong: #cbd5e1; /* slate-300 */
+
+  /* Effects */
+  --g-primary: linear-gradient(135deg, var(--c-primary-1) 0%, var(--c-primary-2) 100%);
+  --g-bg: linear-gradient(135deg, #eef2ff 0%, #faf5ff 100%);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}

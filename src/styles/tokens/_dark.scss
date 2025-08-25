@@ -1,0 +1,11 @@
+/* Dark theme overrides: scoped under body.theme-dark */
+
+body.theme-dark {
+  --c-surface: #0b1220; /* darker surface */
+  --c-surface-2: #0f172a;
+  --c-text: #f3f4f6; /* near-white for contrast */
+  --c-text-muted: #a5b4fc; /* lighter indigo-muted */
+  --c-border: #334155; /* slate-700 for visible borders */
+  --c-border-strong: #475569; /* slate-600 for emphasis */
+  --g-bg: linear-gradient(135deg, #070b14 0%, #111827 100%);
+}

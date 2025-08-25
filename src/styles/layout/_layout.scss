@@ -1,0 +1,73 @@
+/* Layout wrappers and toolbar */
+
+.app-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--g-primary);
+  color: #fff;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+  box-shadow: var(--shadow-sm);
+}
+.toolbar-title {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+.theme-toggle {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.app-content {
+  max-width: 1200px;
+  margin: 16px auto;
+  padding: 16px;
+}
+
+@media (max-width: 768px) {
+  .app-content {
+    padding: 12px;
+    margin: 12px auto;
+  }
+  .toolbar-title {
+    font-size: 16px;
+  }
+}
+
+.content-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px;
+}
+.muted {
+  color: var(--c-text-muted);
+}
+
+.input-sm {
+  width: 220px;
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.35s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

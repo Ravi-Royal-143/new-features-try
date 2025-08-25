@@ -1,0 +1,16 @@
+/* Aggregates modular SCSS partials for the app */
+
+/* 1) Tokens */
+@forward './tokens/variables';
+@forward './tokens/dark';
+
+/* 2) Base */
+@forward './base/base';
+
+/* 3) Layout */
+@forward './layout/layout';
+
+/* 4) Components (global styles) */
+@forward './components/tables';
+@forward './components/forms';
+@forward './components/material-overrides';

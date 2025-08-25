@@ -1,0 +1,39 @@
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--c-surface);
+}
+thead th {
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 1px solid var(--c-border);
+  padding: 8px;
+}
+tbody td {
+  border-bottom: 1px solid var(--c-border);
+  padding: 8px;
+}
+tbody tr:hover {
+  background: rgba(102, 126, 234, 0.06);
+}
+
+/* Dark mode: clearer table delineation */
+body.theme-dark table {
+  border: 1px solid var(--c-border);
+}
+body.theme-dark thead th {
+  background: rgba(255, 255, 255, 0.04);
+  border-bottom-color: var(--c-border-strong);
+}
+body.theme-dark tbody td {
+  border-bottom-color: var(--c-border);
+}
+
+/* Tables dark-mode contrast tweak */
+body.theme-dark table {
+  background: var(--c-surface-2);
+}
+body.theme-dark tbody tr:hover {
+  background: rgba(124, 140, 249, 0.15);
+}

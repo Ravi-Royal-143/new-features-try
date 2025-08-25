@@ -1,0 +1,81 @@
+/* Angular Material overrides: density, buttons, and cards */
+
+.btn-selectable {
+  transition:
+    background-color 0.15s ease,
+    box-shadow 0.15s ease,
+    transform 0.05s ease;
+}
+
+/* Material button contrast fixes in dark mode */
+body.theme-dark .mat-mdc-raised-button.mat-mdc-button-base {
+  --mdc-protected-button-container-color: #1f2937; /* slate-800 */
+  --mdc-protected-button-label-text-color: #f3f4f6; /* near-white */
+  border-color: #334155;
+}
+body.theme-dark .mat-mdc-raised-button.mat-primary {
+  --mdc-protected-button-label-text-color: #ffffff;
+}
+
+/* Compact density for Material fields/buttons */
+.mat-mdc-form-field {
+  --mat-form-field-container-height: 36px; /* default ~56px; this makes fields slimmer */
+  --mat-form-field-container-vertical-padding: 8px;
+  --mdc-shape-small: 8px; /* rounded corners consistent with theme */
+}
+.mat-mdc-raised-button .mdc-button__label,
+.mat-mdc-button .mdc-button__label,
+.mat-mdc-outlined-button .mdc-button__label {
+  line-height: 1;
+}
+body.theme-dark .mat-mdc-outlined-button.mat-mdc-button-base {
+  --mdc-outlined-button-outline-color: #334155; /* slate-700 */
+  --mdc-outlined-button-label-text-color: #e5e7eb; /* light text */
+}
+body.theme-dark .mat-mdc-button.mat-mdc-button-base {
+  --mdc-text-button-label-text-color: #e5e7eb;
+}
+
+/* Material Card: spacing, borders, and visual treatment */
+.mat-mdc-card {
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: 12px;
+  box-shadow: var(--shadow-sm);
+}
+.mat-mdc-card:hover {
+  box-shadow: var(--shadow-md);
+}
+/* Dark theme: stronger separation for cards */
+body.theme-dark .mat-mdc-card {
+  background: var(--c-surface-2);
+  border-color: var(--c-border-strong);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.04),
+    0 8px 24px rgba(0, 0, 0, 0.35);
+}
+/* Comfortable, responsive padding on the card host */
+.mat-mdc-card.mdc-card {
+  padding: 16px; /* base */
+}
+@media (min-width: 640px) {
+  .mat-mdc-card.mdc-card {
+    padding: 20px; /* sm */
+  }
+}
+@media (min-width: 1024px) {
+  .mat-mdc-card.mdc-card {
+    padding: 24px; /* lg+ */
+  }
+}
+/* Avoid double padding when Angular Material emits an inner content wrapper */
+.mat-mdc-card > .mat-mdc-card-content {
+  padding: 0;
+}
+/* Tweak headings inside cards */
+.mat-mdc-card-content h1,
+.mat-mdc-card-content h2,
+.mat-mdc-card-content h3 {
+  margin-top: 0;
+  margin-bottom: 8px;
+}

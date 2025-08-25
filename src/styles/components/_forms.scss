@@ -1,0 +1,31 @@
+/* Form fields - base styling to make native inputs and selects look good in both themes */
+/* Exclude Angular Material inputs from global styling */
+input[type='text']:not(.mat-mdc-input-element),
+input[type='number']:not(.mat-mdc-input-element),
+input[type='email']:not(.mat-mdc-input-element),
+input[type='password']:not(.mat-mdc-input-element),
+textarea:not(.mat-mdc-input-element),
+select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--c-border);
+  background: var(--c-surface);
+  color: var(--c-text);
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+input::placeholder,
+textarea::placeholder {
+  color: var(--c-text-muted);
+}
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: #7c8cf9;
+  box-shadow: 0 0 0 3px rgba(124, 140, 249, 0.3);
+}
