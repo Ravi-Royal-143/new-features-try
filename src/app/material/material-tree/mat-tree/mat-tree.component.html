@@ -1,5 +1,5 @@
-<section class="card">
-  <div class="p-2 stack-sm">
+<mat-card>
+  <div class="p-2 flex flex-wrap gap-2">
     <button mat-raised-button (click)="print()">Console data</button>
     <button
       mat-raised-button
@@ -12,7 +12,7 @@
       Toggle tree
     </button>
   </div>
-  <div *ngIf="showTree" class="table-responsive">
+  <div *ngIf="showTree" class="overflow-auto">
     <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="example-tree" #tree>
       <!-- This is the tree node template for leaf nodes -->
       <!-- There is inline padding applied to this node using styles.
@@ -56,4 +56,4 @@
       </ng-template>
     </ng-template>
   </div>
-</section>
+</mat-card>

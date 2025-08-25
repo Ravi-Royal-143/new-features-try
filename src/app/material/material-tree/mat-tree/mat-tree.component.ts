@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Component, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
@@ -20,6 +21,7 @@ import { FoodNode, TREE_DATA } from './mat-tree';
     MatButtonModule,
     FormsModule,
     MatFormFieldModule,
+    MatCardModule,
     MatInputModule,
   ],
   templateUrl: './mat-tree.component.html',

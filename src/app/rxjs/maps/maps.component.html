@@ -1,4 +1,4 @@
-<section class="card">
+<mat-card>
   <h2 class="flex items-center gap-2">
     RxJS: Mapping Operators
     <span
@@ -6,43 +6,19 @@
       >Tailwind</span
     >
   </h2>
-  <div class="p-2 stack-sm">
-    <button
-      mat-raised-button
-      class="btn-selectable"
-      [class.btn-selected]="activeOp === 'switch'"
-      [attr.aria-pressed]="activeOp === 'switch'"
-      (click)="switchMapFn()"
+  <div class="p-2">
+    <mat-button-toggle-group
+      name="op"
+      [value]="activeOp"
+      (change)="onOpChange($event.value)"
+      aria-label="Select mapping operator"
+      class="flex flex-wrap gap-2"
     >
-      SwitchMap
-    </button>
-    <button
-      mat-raised-button
-      class="btn-selectable"
-      [class.btn-selected]="activeOp === 'exhaust'"
-      [attr.aria-pressed]="activeOp === 'exhaust'"
-      (click)="exhaustMap()"
-    >
-      ExhaustMap
-    </button>
-    <button
-      mat-raised-button
-      class="btn-selectable"
-      [class.btn-selected]="activeOp === 'concat'"
-      [attr.aria-pressed]="activeOp === 'concat'"
-      (click)="concatMapFn()"
-    >
-      ConcatMap
-    </button>
-    <button
-      mat-raised-button
-      class="btn-selectable"
-      [class.btn-selected]="activeOp === 'merge'"
-      [attr.aria-pressed]="activeOp === 'merge'"
-      (click)="mergeMapFn()"
-    >
-      MergeMap
-    </button>
+      <mat-button-toggle value="switch">SwitchMap</mat-button-toggle>
+      <mat-button-toggle value="exhaust">ExhaustMap</mat-button-toggle>
+      <mat-button-toggle value="concat">ConcatMap</mat-button-toggle>
+      <mat-button-toggle value="merge">MergeMap</mat-button-toggle>
+    </mat-button-toggle-group>
   </div>
 
   <div class="p-2">
@@ -50,8 +26,8 @@
     <p class="muted">{{ details.body }}</p>
   </div>
 
-  <div class="table-responsive">
-    <table class="rounded-lg overflow-hidden shadow-sm">
+  <div class="overflow-auto">
+    <table class="rounded-lg overflow-hidden shadow-sm min-w-[600px]">
       <thead>
         <th class="min-width-50">ID</th>
         <th class="min-width-50 text-left">Title</th>
@@ -70,4 +46,4 @@
       </tbody>
     </table>
   </div>
-</section>
+</mat-card>

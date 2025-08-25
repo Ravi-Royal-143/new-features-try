@@ -1,7 +1,7 @@
 <!-- eslint-disable @angular-eslint/template/click-events-have-key-events -->
 <!-- eslint-disable @angular-eslint/template/interactive-supports-focus -->
-<section class="card">
-  <div class="table-responsive">
+<mat-card>
+  <div class="overflow-auto">
     <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="example-tree">
       <!-- This is the tree node template for leaf nodes -->
       <!-- There is inline padding applied to this node using styles.
@@ -45,4 +45,4 @@
       </mat-nested-tree-node>
     </mat-tree>
   </div>
-</section>
+</mat-card>

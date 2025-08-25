@@ -2,6 +2,7 @@ import { NestedTreeControl } from '@angular/cdk/tree';
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTreeModule, MatTreeNestedDataSource } from '@angular/material/tree';
 
@@ -9,7 +10,7 @@ import { FoodNode, TREE_DATA } from './mat.tree';
 
 @Component({
   selector: 'app-mat-tree-parent-mine-custom',
-  imports: [CommonModule, MatTreeModule, MatIconModule, MatButtonModule],
+  imports: [CommonModule, MatTreeModule, MatIconModule, MatButtonModule, MatCardModule],
   templateUrl: './mat-tree-parent-mine-custom.component.html',
   styleUrls: ['./mat-tree-parent-mine-custom.component.scss'],
 })

@@ -1,5 +1,5 @@
 <!-- eslint-disable @angular-eslint/template/elements-content -->
-<section class="card">
+<mat-card>
   <div class="p-2">
     <a
       href="https://stackblitz.com/github/vtsiris/material-tree-tutorial?file=src%2Fapp%2Fapp.component.ts,src%2Fapp%2Fapp.component.html"
@@ -11,7 +11,7 @@
 
   <app-add-node (addedNode)="addNode($event)" [isTop]="true"></app-add-node>
 
-  <div class="table-responsive">
+  <div class="overflow-auto">
     <mat-tree
       [dataSource]="nestedDataSource"
       [treeControl]="nestedTreeControl"
@@ -64,4 +64,4 @@
       </mat-nested-tree-node>
     </mat-tree>
   </div>
-</section>
+</mat-card>

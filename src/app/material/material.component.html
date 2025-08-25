@@ -1,7 +1,7 @@
-<section class="card">
+<mat-card>
   <h2>Material</h2>
   <p class="muted">Angular Material components and custom tree demos.</p>
-  <div class="numbered-list grid-auto">
+  <div class="numbered-list grid grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-3">
     <a [routerLink]="'mat-tree-mine'"><mat-icon>account_tree</mat-icon> Mat Tree (Mine)</a>
     <a [routerLink]="'mat-tree-net'"><mat-icon>account_tree</mat-icon> Mat Tree (Net)</a>
     <a [routerLink]="'mat-tree-net-copied'"
@@ -11,4 +11,4 @@
       ><mat-icon>device_hub</mat-icon> Mat Tree (Parent Mine Custom)</a
     >
   </div>
-</section>
+</mat-card>

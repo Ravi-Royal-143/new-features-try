@@ -1,4 +1,4 @@
-<section class="card">
+<mat-card>
   <h2>Pipe vs Function</h2>
   <p>
     It seems the pipe template takes less time called but may be there is more memory consumption
@@ -17,12 +17,13 @@
   </div>
   <br />
   <div class="p-2">
-    <strong>From Local Function:</strong>
-    <span *ngFor="let data of arrayDatas"> {{ getLabelLocalFn(data) }} </span>
+    <mat-card>
+      <strong>From Local Function:</strong>
+      <span *ngFor="let data of arrayDatas"> {{ getLabelLocalFn(data) }} </span>
+    </mat-card>
   </div>
-  <br />
   <div class="p-2">
     <strong>From Pipe:</strong>
     <span *ngFor="let data of arrayDatas"> {{ getLabel | getLabelPipe: data }} </span>
   </div>
-</section>
+</mat-card>

@@ -80,35 +80,7 @@ body.theme-dark {
   padding: 16px;
 }
 
-/* Card-like section (use on containers if needed) */
-.card {
-  background: var(--c-surface);
-  border: 1px solid var(--c-border);
-  border-radius: 12px;
-  padding: 16px;
-  box-shadow: var(--shadow-sm);
-}
-.card:hover {
-  box-shadow: var(--shadow-md);
-}
-
-/* Dark mode: stronger separation for cards */
-body.theme-dark .card {
-  background: var(--c-surface-2);
-  border-color: var(--c-border-strong);
-  box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.04),
-    0 8px 24px rgba(0, 0, 0, 0.35);
-}
-
-/* Card section headers */
-.card h2 {
-  margin: 0 0 8px 0;
-}
-body.theme-dark .card h2 {
-  padding-bottom: 6px;
-  border-bottom: 1px solid var(--c-border);
-}
+/* Card styles moved to Tailwind components in tailwind.css */
 
 /* Tables */
 table {
@@ -141,66 +113,11 @@ body.theme-dark thead th {
 body.theme-dark tbody td {
   border-bottom-color: var(--c-border);
 }
-
-/* Buttons */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  border: none;
-  padding: 10px 14px;
-  border-radius: 8px;
-  font-weight: 600;
-  cursor: pointer;
-  transition:
-    transform 0.15s ease,
-    box-shadow 0.2s ease,
-    background-color 0.2s ease;
-}
-.btn:hover {
-  transform: translateY(-1px);
-}
-.btn:active {
-  transform: translateY(0);
-}
-.btn-primary {
-  color: #fff;
-  background: var(--g-primary);
-  box-shadow: var(--shadow-sm);
-}
-.btn-light {
-  color: var(--c-text);
-  background: #fff;
-  border: 1px solid var(--c-border);
-}
-
-/* Reusable selected-state helpers for Material raised buttons */
 .btn-selectable {
   transition:
     background-color 0.15s ease,
     box-shadow 0.15s ease,
     transform 0.05s ease;
-}
-.mat-mdc-raised-button.btn-selected,
-button.mat-mdc-raised-button.btn-selected,
-.mat-mdc-raised-button[aria-pressed='true'],
-button.mat-mdc-raised-button[aria-pressed='true'] {
-  border: 1px solid var(--c-border-strong);
-  box-shadow:
-    0 0 0 2px rgba(102, 126, 234, 0.25),
-    0 6px 18px rgba(0, 0, 0, 0.15);
-  transform: translateY(-1px);
-}
-body.theme-dark .mat-mdc-raised-button.btn-selected,
-body.theme-dark button.mat-mdc-raised-button.btn-selected,
-body.theme-dark .mat-mdc-raised-button[aria-pressed='true'],
-body.theme-dark button.mat-mdc-raised-button[aria-pressed='true'] {
-  border-color: #93a0ff;
-  background: rgba(124, 140, 249, 0.18) !important;
-  color: #e5e7eb;
-  box-shadow:
-    0 0 0 2px rgba(148, 163, 255, 0.35),
-    0 8px 24px rgba(0, 0, 0, 0.35);
 }
 
 /* Links */
@@ -321,50 +238,7 @@ body.theme-dark .mat-mdc-button.mat-mdc-button-base {
   animation: fadeInUp 0.35s ease-out;
 }
 
-/* Enhanced numbered list (if used) */
-.numbered-list {
-  counter-reset: link-counter;
-  padding: 8px 0;
-}
-.numbered-list a {
-  display: block;
-  padding: 8px 12px;
-  border-radius: 8px;
-  border: 1px solid var(--c-border);
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.02) inset;
-  transition:
-    background-color 0.15s ease,
-    border-color 0.15s ease,
-    box-shadow 0.15s ease;
-}
-.numbered-list a:hover {
-  background: rgba(102, 126, 234, 0.08);
-}
-.numbered-list a::before {
-  counter-increment: link-counter;
-  content: counter(link-counter, decimal-leading-zero) ' · ';
-  font-weight: 700;
-  margin-right: 6px;
-  background: var(--g-primary);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-/* Dark mode: make list items pop with a stronger, clearer border */
-body.theme-dark .numbered-list a {
-  /* Slightly lighter than card background for contrast */
-  border-color: #6b7aa6; /* slate-500 with a blue tint */
-  border-width: 1.5px;
-  background: rgba(255, 255, 255, 0.035);
-  box-shadow:
-    0 0 0 1px rgba(255, 255, 255, 0.08) inset,
-    0 1px 2px rgba(0, 0, 0, 0.25);
-}
-body.theme-dark .numbered-list a:hover {
-  background: rgba(124, 140, 249, 0.14);
-  border-color: #aab6ff;
-}
+/* Numbered list styles moved to Tailwind components in tailwind.css */
 
 /* Accessibility */
 :focus {
@@ -383,20 +257,7 @@ body.theme-dark .numbered-list a:hover {
   }
 }
 
-/* Responsive utilities */
-.grid-auto {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 12px;
-}
-.stack-sm {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-.stack-sm > * {
-  flex: 1 1 auto;
-}
+/* Responsive utilities moved to Tailwind classes */
 
 /* Make images and embedded media responsive */
 img,
@@ -407,52 +268,50 @@ svg {
   height: auto;
 }
 
-/* Table responsiveness */
-.table-responsive {
-  width: 100%;
-  overflow-x: auto;
-}
-.table-responsive table {
-  min-width: 600px;
-}
+/* Table responsiveness handled via Tailwind's overflow-auto utility */
 
-/* Form layout utilities */
-.form-row {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 12px;
-}
-.col-12 {
-  grid-column: span 12;
-}
-.col-6 {
-  grid-column: span 6;
-}
-.col-4 {
-  grid-column: span 4;
-}
-.col-3 {
-  grid-column: span 3;
-}
+/* Form layout handled by Tailwind grid utilities */
 
-@media (max-width: 1024px) {
-  .col-6 {
-    grid-column: span 12;
-  }
-  .col-4 {
-    grid-column: span 6;
-  }
-  .col-3 {
-    grid-column: span 6;
+/* Material Card: spacing, borders, and visual treatment */
+.mat-mdc-card {
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: 12px;
+  box-shadow: var(--shadow-sm);
+}
+.mat-mdc-card:hover {
+  box-shadow: var(--shadow-md);
+}
+/* Dark theme: stronger separation for cards */
+body.theme-dark .mat-mdc-card {
+  background: var(--c-surface-2);
+  border-color: var(--c-border-strong);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.04),
+    0 8px 24px rgba(0, 0, 0, 0.35);
+}
+/* Comfortable, responsive padding on the card host */
+.mat-mdc-card.mdc-card {
+  padding: 16px; /* base */
+}
+@media (min-width: 640px) {
+  .mat-mdc-card.mdc-card {
+    padding: 20px; /* sm */
   }
 }
-@media (max-width: 640px) {
-  .form-row {
-    grid-template-columns: 1fr;
+@media (min-width: 1024px) {
+  .mat-mdc-card.mdc-card {
+    padding: 24px; /* lg+ */
   }
-  .col-6,
-  .col-4,
-  .col-3 {
-    grid-column: span 1;
-  }
+}
+/* Avoid double padding when Angular Material emits an inner content wrapper */
+.mat-mdc-card > .mat-mdc-card-content {
+  padding: 0;
+}
+/* Tweak headings inside cards */
+.mat-mdc-card-content h1,
+.mat-mdc-card-content h2,
+.mat-mdc-card-content h3 {
+  margin-top: 0;
+  margin-bottom: 8px;
 }

@@ -1,3 +1,57 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  /* Card component using Tailwind utilities + CSS variables */
+  .card {
+    @apply bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-4 shadow-sm;
+  }
+  .card:hover {
+    @apply shadow-md;
+  }
+  .theme-dark .card {
+    @apply bg-[var(--c-surface-2)] border-[var(--c-border-strong)];
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.04),
+      0 8px 24px rgba(0, 0, 0, 0.35);
+  }
+  .card h2 {
+    @apply m-0 mb-2;
+  }
+  .theme-dark .card h2 {
+    @apply pb-1 border-b border-[var(--c-border)];
+  }
+
+  /* Numbered list component (used on route link pages) */
+  .numbered-list {
+    counter-reset: link-counter;
+    @apply py-2;
+  }
+  .numbered-list a {
+    @apply block rounded-lg px-3 py-2 border border-[var(--c-border)];
+  }
+  .numbered-list a:hover {
+    background: rgba(102, 126, 234, 0.08);
+  }
+  .numbered-list a::before {
+    counter-increment: link-counter;
+    content: counter(link-counter, decimal-leading-zero) ' · ';
+    @apply font-bold mr-1.5;
+    background: var(--g-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .theme-dark .numbered-list a {
+    border-color: #6b7aa6; /* stronger visible border in dark */
+    background: rgba(255, 255, 255, 0.035);
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.08) inset,
+      0 1px 2px rgba(0, 0, 0, 0.25);
+  }
+  .theme-dark .numbered-list a:hover {
+    background: rgba(124, 140, 249, 0.14);
+    border-color: #aab6ff;
+  }
+}

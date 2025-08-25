@@ -1,6 +1,6 @@
-<section class="card">
+<mat-card>
   <h2>Linked Signal</h2>
-  <div class="p-2 stack-sm">
+  <div class="p-2 flex flex-wrap gap-2">
     <mat-form-field appearance="outline" class="w-64">
       <mat-label>Change Fahrenheit</mat-label>
       <input matInput id="fahrenheitInput" type="number" [(ngModel)]="fahrenheit" />
@@ -29,4 +29,4 @@
     <li>If celsius changes, fahrenheit updates using linked signal computation logic.</li>
     <li>Changing fahrenheit directly does not convert; the value is displayed as-is.</li>
   </ul>
-</section>
+</mat-card>

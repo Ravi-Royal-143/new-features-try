@@ -2,6 +2,8 @@ import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatCardModule } from '@angular/material/card';
 import {
   concatMap,
   exhaustMap,
@@ -22,7 +24,7 @@ interface PostRes {
 
 @Component({
   selector: 'app-maps',
-  imports: [CommonModule, MatButtonModule],
+  imports: [CommonModule, MatButtonModule, MatButtonToggleModule, MatCardModule],
   // TODO: `HttpClientModule` should not be imported into a component directly.
   // Please refactor the code to add `provideHttpClient()` call to the provider list in the
   // application bootstrap logic and remove the `HttpClientModule` import from this component.
@@ -71,6 +73,22 @@ export class MapsComponent implements OnInit {
       console.log(response);
       this.tableDatas.push(response);
     });
+  }
+
+  onOpChange(op: 'merge' | 'switch' | 'concat' | 'exhaust') {
+    switch (op) {
+      case 'switch':
+        this.switchMapFn();
+        break;
+      case 'exhaust':
+        this.exhaustMap();
+        break;
+      case 'concat':
+        this.concatMapFn();
+        break;
+      default:
+        this.mergeMapFn();
+    }
   }
 
   mergeMapFn() {

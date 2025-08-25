@@ -1,11 +1,12 @@
 import { AsyncPipe } from '@angular/common';
 import { Component, afterNextRender, afterRender } from '@angular/core';
 import { toObservable, toSignal } from '@angular/core/rxjs-interop';
+import { MatCardModule } from '@angular/material/card';
 import { interval, tap } from 'rxjs';
 
 @Component({
   selector: 'app-signal-observable',
-  imports: [AsyncPipe],
+  imports: [AsyncPipe, MatCardModule],
   templateUrl: './signal-observable.component.html',
   styleUrl: './signal-observable.component.scss',
 })

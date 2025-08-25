@@ -1,4 +1,4 @@
-<section class="card">
+<mat-card>
   <h2>FormRecord Try</h2>
   <div class="p-2">
     <button mat-raised-button color="primary" (click)="check()">Print form value</button>
@@ -10,7 +10,7 @@
     </div>
   </form>
 
-  <div class="p-2 stack-sm items-center">
+  <div class="p-2 flex flex-wrap gap-2 items-center">
     <mat-form-field appearance="outline" class="input-sm">
       <mat-label>New control name</mat-label>
       <input matInput type="text" #inputRef required />
@@ -24,4 +24,4 @@
       Add control
     </button>
   </div>
-</section>
+</mat-card>

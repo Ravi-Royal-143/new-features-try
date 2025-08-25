@@ -1,11 +1,12 @@
 import { Component, computed, effect, signal, untracked } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 
 @Component({
   selector: 'app-basic-signal',
-  imports: [FormsModule, MatFormFieldModule, MatInputModule],
+  imports: [FormsModule, MatCardModule, MatFormFieldModule, MatInputModule],
   templateUrl: './basic-signal.component.html',
   styleUrl: './basic-signal.component.scss',
 })
