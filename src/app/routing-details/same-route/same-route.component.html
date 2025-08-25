@@ -9,16 +9,8 @@
       [attr.aria-pressed]="isActive"
       (click)="toggleComponent()"
     >
-      Toggle Component for the same URL
-    </button>
-    <button
-      mat-raised-button
-      class="btn-selectable"
-      [class.btn-selected]="!isActive"
-      [attr.aria-pressed]="!isActive"
-      (click)="toggleComponent()"
-    >
-      Toggle to see to component switch in same route
+      Toggle component (current: {{ isActive ? 'Component 1' : 'Component 2' }})
     </button>
   </div>
+  <router-outlet></router-outlet>
 </mat-card>
