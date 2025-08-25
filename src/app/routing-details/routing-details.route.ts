@@ -1,5 +1,7 @@
 import { Routes } from '@angular/router';
 
+import { ROUTES as ROUTE } from '../shared/constants';
+
 import { isComp1 } from './same-route/same.route';
 
 export const ROUTING_SECTION: Routes = [
@@ -10,18 +12,18 @@ export const ROUTING_SECTION: Routes = [
     pathMatch: 'full',
   },
   {
-    path: 'same-route',
+    path: ROUTE.routingDetails.sameRoute,
     loadComponent: () =>
       import('./same-route/same-route.component').then((c) => c.SameRouteComponent),
     children: [
       {
-        path: 'component',
+        path: ROUTE.routingDetails.component,
         loadComponent: () =>
           import('./same-route/comp1/comp1.component').then((c) => c.Comp1Component),
         canMatch: [() => isComp1.value],
       },
       {
-        path: 'component',
+        path: ROUTE.routingDetails.component,
         loadComponent: () =>
           import('./same-route/comp2/comp2.component').then((c) => c.Comp2Component),
         canMatch: [() => !isComp1.value],
@@ -29,7 +31,7 @@ export const ROUTING_SECTION: Routes = [
       {
         path: '',
         pathMatch: 'full',
-        redirectTo: 'component',
+        redirectTo: ROUTE.routingDetails.component,
       },
     ],
   },

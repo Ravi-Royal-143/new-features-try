@@ -1,5 +1,7 @@
 import { Routes } from '@angular/router';
 
+import { ROUTES as ROUTE } from '../shared/constants';
+
 import { MapsComponent } from './maps/maps.component';
 import { RxjsComponent } from './rxjs.component';
 
@@ -13,7 +15,7 @@ export const RXJS_ROUTES: Routes = [
         component: RxjsComponent,
       },
       {
-        path: 'maps',
+        path: ROUTE.rxjs.maps,
         component: MapsComponent,
       },
     ],

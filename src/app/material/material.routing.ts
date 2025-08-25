@@ -1,30 +1,32 @@
 import { Routes } from '@angular/router';
 
+import { ROUTES as ROUTE } from '../shared/constants';
+
 export const MATERIALS_ROUTES: Routes = [
   {
     path: '',
     children: [
       {
-        path: 'mat-tree-mine',
+        path: ROUTE.material.matTreeMine,
         loadComponent: () =>
           import('./material-tree/mat-tree/mat-tree.component').then((c) => c.MatTreeComponent),
       },
       {
-        path: 'mat-tree-net',
+        path: ROUTE.material.matTreeNet,
         loadComponent: () =>
           import('./material-tree/tree-from-net/tree-from-net.component').then(
             (c) => c.TreeFromNetComponent,
           ),
       },
       {
-        path: 'mat-tree-net-copied',
+        path: ROUTE.material.matTreeNetCopied,
         loadChildren: () =>
           import('./material-tree/mat-tree-net-copied/mat-tree-net-copied.module').then(
             (c) => c.MatTreeNetCopiedModule,
           ),
       },
       {
-        path: 'mat-tree-parent-mine-custom',
+        path: ROUTE.material.matTreeParentMineCustom,
         loadComponent: () =>
           import(
             './material-tree/mat-tree-parent-mine-custom/mat-tree-parent-mine-custom.component'

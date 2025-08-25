@@ -4,6 +4,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { Router, RouterModule } from '@angular/router';
 
+import {
+  SAME_ROUTE_LABEL_COMP1,
+  SAME_ROUTE_LABEL_COMP2,
+  SAME_ROUTE_SECTION_TITLE,
+  SAME_ROUTE_TOGGLE_LABEL,
+} from './same-route.constants';
 import { isComp1, toggleComp1 } from './same.route';
 
 @Component({
@@ -14,6 +20,10 @@ import { isComp1, toggleComp1 } from './same.route';
 })
 export class SameRouteComponent {
   constructor(private router: Router) {}
+  readonly sectionTitle = SAME_ROUTE_SECTION_TITLE;
+  readonly toggleLabel = SAME_ROUTE_TOGGLE_LABEL;
+  readonly labelComp1 = SAME_ROUTE_LABEL_COMP1;
+  readonly labelComp2 = SAME_ROUTE_LABEL_COMP2;
   get isActive(): boolean {
     return isComp1.value;
   }

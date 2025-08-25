@@ -1,13 +1,9 @@
 <mat-card>
-  <h2>All Routes</h2>
-  <p class="muted">Explore the sections below to try different Angular features.</p>
+  <h2>{{ sectionTitle }}</h2>
+  <p class="muted">{{ sectionDescription }}</p>
   <div class="numbered-list grid grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-3">
-    <a [routerLink]="'/forms'">Forms</a>
-    <a [routerLink]="'/rxjs'">RxJS</a>
-    <a [routerLink]="'/material'">Material</a>
-    <a [routerLink]="'/content-projection'">Content Projection</a>
-    <a [routerLink]="'/routing-query-solution'">Routing Details</a>
-    <a [routerLink]="'/performance'">Performance</a>
-    <a [routerLink]="'/signal'">Signals</a>
+    @for (link of navigationLinks; track link.label) {
+      <a [routerLink]="link.link">{{ link.label }}</a>
+    }
   </div>
 </mat-card>

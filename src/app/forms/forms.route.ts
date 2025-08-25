@@ -1,5 +1,7 @@
 import { Routes } from '@angular/router';
 
+import { ROUTES as ROUTE } from '../shared/constants';
+
 import { FormsComponent } from './forms.component';
 
 export const FORMS_ROUTES: Routes = [
@@ -12,14 +14,14 @@ export const FORMS_ROUTES: Routes = [
         component: FormsComponent,
       },
       {
-        path: 'form-record',
+        path: ROUTE.forms.formRecord,
         loadComponent: () =>
           import('./form-record-try/form-record-try.component').then(
             (c) => c.FormRecordTryComponent,
           ),
       },
       {
-        path: 'form-group-directive',
+        path: ROUTE.forms.formGroupDirective,
         loadComponent: () =>
           import('./main-form/main-form.component').then((c) => c.MainFormComponent),
       },

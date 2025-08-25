@@ -1,7 +1,9 @@
 <mat-card>
-  <h2>Routing Details</h2>
-  <p class="muted">Learn about query params and same-route handling.</p>
+  <h2>{{ sectionTitle }}</h2>
+  <p class="muted">{{ sectionDescription }}</p>
   <div class="numbered-list grid grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-3">
-    <a [routerLink]="'same-route'">Same Route</a>
+    @for (link of navigationLinks; track link.label) {
+      <a [routerLink]="link.link">{{ link.label }}</a>
+    }
   </div>
 </mat-card>

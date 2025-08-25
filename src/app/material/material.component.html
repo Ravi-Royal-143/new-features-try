@@ -1,14 +1,14 @@
 <mat-card>
-  <h2>Material</h2>
-  <p class="muted">Angular Material components and custom tree demos.</p>
+  <h2>{{ sectionTitle }}</h2>
+  <p class="muted">{{ sectionDescription }}</p>
   <div class="numbered-list grid grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-3">
-    <a [routerLink]="'mat-tree-mine'"><mat-icon>account_tree</mat-icon> Mat Tree (Mine)</a>
-    <a [routerLink]="'mat-tree-net'"><mat-icon>account_tree</mat-icon> Mat Tree (Net)</a>
-    <a [routerLink]="'mat-tree-net-copied'"
-      ><mat-icon>content_copy</mat-icon> Mat Tree (Net Copied)</a
-    >
-    <a [routerLink]="'mat-tree-parent-mine-custom'"
-      ><mat-icon>device_hub</mat-icon> Mat Tree (Parent Mine Custom)</a
-    >
+    @for (link of navigationLinks; track link.label) {
+      <a [routerLink]="link.link">
+        @if (link.icon) {
+          <mat-icon>{{ link.icon }}</mat-icon>
+        }
+        {{ link.label }}
+      </a>
+    }
   </div>
 </mat-card>

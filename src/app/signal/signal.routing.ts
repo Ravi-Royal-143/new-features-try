@@ -1,5 +1,7 @@
 import { Routes } from '@angular/router';
 
+import { ROUTES as ROUTE } from '../shared/constants';
+
 import { BasicSignalComponent } from './basic-signal/basic-signal.component';
 import { LinkedSignalComponent } from './linked-signal/linked-signal.component';
 import { SignalObservableComponent } from './signal-observable/signal-observable.component';
@@ -15,15 +17,15 @@ export const SIGNAL_ROUTES: Routes = [
         component: SignalComponent,
       },
       {
-        path: 'basic-signal',
+        path: ROUTE.signal.basic,
         component: BasicSignalComponent,
       },
       {
-        path: 'signal-observable',
+        path: ROUTE.signal.observable,
         component: SignalObservableComponent,
       },
       {
-        path: 'linked-signal',
+        path: ROUTE.signal.linked,
         component: LinkedSignalComponent,
       },
     ],

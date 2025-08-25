@@ -1,8 +1,9 @@
 <mat-card>
-  <h2>Forms</h2>
-  <p class="muted">Experiment with modern Angular forms patterns.</p>
+  <h2>{{ sectionTitle }}</h2>
+  <p class="muted">{{ sectionDescription }}</p>
   <div class="numbered-list">
-    <a [routerLink]="'form-record'">FormRecord</a>
-    <a [routerLink]="'form-group-directive'">FormGroup Directive</a>
+    @for (link of navigationLinks; track link.label) {
+      <a [routerLink]="link.link">{{ link.label }}</a>
+    }
   </div>
 </mat-card>

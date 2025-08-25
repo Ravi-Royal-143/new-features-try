@@ -1,13 +1,13 @@
 <mat-card>
-  <h2>Content Projection</h2>
-  <p class="muted">Pass templates from parent to child to improve reusability.</p>
+  <h2>{{ sectionTitle }}</h2>
+  <p class="muted">{{ sectionDescription }}</p>
   <div class="numbered-list grid grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-3">
-    <a
-      href="https://medium.com/geekculture/angular-3-ways-you-can-pass-templates-from-parent-to-child-components-to-promote-reusability-ba0a0bfb77c6"
-      target="_blank"
-      rel="noopener noreferrer"
-      >Medium Reference link</a
-    >
-    <a [routerLink]="'template-projection'">Template projection to child</a>
+    @for (link of navigationLinks; track link.label) {
+      @if (link.external) {
+        <a [href]="link.link" [target]="link.target" [rel]="link.rel">{{ link.label }}</a>
+      } @else {
+        <a [routerLink]="link.link">{{ link.label }}</a>
+      }
+    }
   </div>
 </mat-card>
