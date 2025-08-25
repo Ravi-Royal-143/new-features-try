@@ -16,12 +16,12 @@
     <button mat-raised-button color="primary" (click)="test()">Check function call count</button>
   </div>
   <br />
-  <div>
+  <div class="p-2">
     <strong>From Local Function:</strong>
     <span *ngFor="let data of arrayDatas"> {{ getLabelLocalFn(data) }} </span>
   </div>
   <br />
-  <div>
+  <div class="p-2">
     <strong>From Pipe:</strong>
     <span *ngFor="let data of arrayDatas"> {{ getLabel | getLabelPipe: data }} </span>
   </div>

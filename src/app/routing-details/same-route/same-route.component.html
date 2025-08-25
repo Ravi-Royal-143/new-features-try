@@ -1,13 +1,11 @@
 <section class="card">
   <h2>Same Route Demo</h2>
-  <div class="p-2">
-    <button class="btn btn-primary" (click)="toggleComponent()">
+  <div class="p-2 stack-sm">
+    <button mat-raised-button color="primary" (click)="toggleComponent()">
       Toggle Component for the same URL
     </button>
-    <div>
-      <button mat-raised-button color="primary" (click)="toggleComponent()">
-        Toggle to see to component switch in same route
-      </button>
-    </div>
+    <button mat-raised-button (click)="toggleComponent()">
+      Toggle to see to component switch in same route
+    </button>
   </div>
 </section>
