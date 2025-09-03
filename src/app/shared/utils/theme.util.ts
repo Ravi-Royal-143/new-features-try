@@ -4,8 +4,8 @@ export const THEME_CLASS = 'theme-dark';
 const STORAGE_KEY = 'theme';
 
 export function readSavedTheme(): Theme | null {
-  const v = localStorage.getItem(STORAGE_KEY);
-  return v === 'light' || v === 'dark' ? v : null;
+  const storedValue = localStorage.getItem(STORAGE_KEY);
+  return storedValue === 'light' || storedValue === 'dark' ? storedValue : null;
 }
 
 export function applyTheme(doc: Document, isDark: boolean): void {

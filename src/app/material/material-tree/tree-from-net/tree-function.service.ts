@@ -27,9 +27,9 @@ export class TreeFunctionService {
   }
 
   findPosition(id: number, data: TreeData[]): number | null {
-    for (let i = 0; i < data.length; i += 1) {
-      if (id === data[i].Id) {
-        return i;
+    for (let index = 0; index < data.length; index += 1) {
+      if (id === data[index].Id) {
+        return index;
       }
     }
     return null;
@@ -37,9 +37,9 @@ export class TreeFunctionService {
 
   findFatherNode(id: number, data: TreeData[]): readonly [TreeData, number] | false {
     for (const currentFather of data) {
-      for (let z = 0; z < currentFather.Children.length; z += 1) {
-        if (id === currentFather.Children[z].Id) {
-          return [currentFather, z] as const;
+      for (let childIndex = 0; childIndex < currentFather.Children.length; childIndex += 1) {
+        if (id === currentFather.Children[childIndex].Id) {
+          return [currentFather, childIndex] as const;
         }
       }
       for (const currentFatherChild of currentFather.Children) {
