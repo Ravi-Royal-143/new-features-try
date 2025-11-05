@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatCardModule } from '@angular/material/card';
@@ -41,7 +41,10 @@ export class MapsComponent implements OnInit {
   };
   activeOp: 'merge' | 'switch' | 'concat' | 'exhaust' = 'merge';
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private cd: ChangeDetectorRef,
+  ) {}
 
   ngOnInit(): void {
     this.mergeMapFn();
@@ -72,6 +75,7 @@ export class MapsComponent implements OnInit {
     this.sub$ = postIds$.pipe(operator).subscribe((response: PostRes) => {
       console.log(response);
       this.tableDatas.push(response);
+      this.cd.markForCheck();
     });
   }
 
