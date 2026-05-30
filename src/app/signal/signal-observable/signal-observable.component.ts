@@ -1,5 +1,5 @@
 import { AsyncPipe } from '@angular/common';
-import { Component, afterNextRender, afterRender } from '@angular/core';
+import { Component, afterNextRender, afterEveryRender } from '@angular/core';
 import { toObservable, toSignal } from '@angular/core/rxjs-interop';
 import { MatCardModule } from '@angular/material/card';
 import { interval, tap } from 'rxjs';
@@ -26,7 +26,7 @@ export class SignalObservableComponent {
   obsSignal$ = toObservable(this.signal);
 
   constructor() {
-    afterRender(() => {
+    afterEveryRender(() => {
       console.log('afterRender');
     });
 

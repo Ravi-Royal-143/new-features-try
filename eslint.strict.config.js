@@ -78,6 +78,9 @@ module.exports = tseslint.config(
           style: 'kebab-case',
         },
       ],
+      '@angular-eslint/prefer-inject': 'off',
+      '@typescript-eslint/no-unnecessary-type-conversion': 'warn',
+      '@typescript-eslint/no-unnecessary-type-assertion': 'warn',
     },
   },
   {
