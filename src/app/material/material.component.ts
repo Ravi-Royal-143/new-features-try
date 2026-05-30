@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
-import { RouterModule } from '@angular/router';
+import { RouterLink } from '@angular/router';
 
 import { NavigationLink } from '../shared/types';
 
@@ -13,7 +13,7 @@ import {
 
 @Component({
   selector: 'app-material',
-  imports: [MatCardModule, RouterModule, MatIconModule],
+  imports: [MatCardModule, RouterLink, MatIconModule],
   templateUrl: './material.component.html',
   styleUrls: ['./material.component.scss'],
 })

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { Router, RouterModule } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 
 import {
   SAME_ROUTE_LABEL_COMP1,
@@ -13,7 +13,7 @@ import { isComp1, toggleComp1 } from './same.route';
 
 @Component({
   selector: 'app-same-route',
-  imports: [RouterModule, MatButtonModule, MatCardModule],
+  imports: [RouterOutlet, MatButtonModule, MatCardModule],
   templateUrl: './same-route.component.html',
   styleUrls: ['./same-route.component.scss'],
 })

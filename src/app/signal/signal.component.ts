@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
-import { RouterModule } from '@angular/router';
+import { RouterLink } from '@angular/router';
 
 import { NavigationLink } from '../shared/types';
 
@@ -13,7 +13,7 @@ import {
 
 @Component({
   selector: 'app-signal',
-  imports: [FormsModule, RouterModule, MatCardModule],
+  imports: [FormsModule, RouterLink, MatCardModule],
   templateUrl: './signal.component.html',
   styleUrls: ['./signal.component.scss'],
 })

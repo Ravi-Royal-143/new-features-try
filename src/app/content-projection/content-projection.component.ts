@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
-import { RouterModule } from '@angular/router';
+import { RouterLink } from '@angular/router';
 
 import { NavigationLink } from '../shared/types';
 
@@ -12,7 +12,7 @@ import {
 
 @Component({
   selector: 'app-content-projection',
-  imports: [RouterModule, MatCardModule],
+  imports: [RouterLink, MatCardModule],
   templateUrl: './content-projection.component.html',
   styleUrls: ['./content-projection.component.scss'],
 })
