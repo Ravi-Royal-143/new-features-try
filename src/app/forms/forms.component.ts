@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { RouterModule } from '@angular/router';
@@ -13,7 +12,7 @@ import {
 
 @Component({
   selector: 'app-forms',
-  imports: [CommonModule, RouterModule, MatCardModule],
+  imports: [RouterModule, MatCardModule],
   templateUrl: './forms.component.html',
   styleUrls: ['./forms.component.scss'],
 })

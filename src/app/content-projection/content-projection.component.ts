@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { RouterModule } from '@angular/router';
@@ -13,7 +12,7 @@ import {
 
 @Component({
   selector: 'app-content-projection',
-  imports: [CommonModule, RouterModule, MatCardModule],
+  imports: [RouterModule, MatCardModule],
   templateUrl: './content-projection.component.html',
   styleUrls: ['./content-projection.component.scss'],
 })

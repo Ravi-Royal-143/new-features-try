@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { RouterModule } from '@angular/router';
@@ -13,7 +12,7 @@ import {
 
 @Component({
   selector: 'app-routing-details',
-  imports: [CommonModule, RouterModule, MatCardModule],
+  imports: [RouterModule, MatCardModule],
   templateUrl: './routing-details.component.html',
   styleUrls: ['./routing-details.component.scss'],
 })

@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormGroupDirective, ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
@@ -7,7 +6,7 @@ import { MatInputModule } from '@angular/material/input';
 
 @Component({
   selector: 'app-sub-form-with-control-inside',
-  imports: [CommonModule, ReactiveFormsModule, MatCardModule, MatFormFieldModule, MatInputModule],
+  imports: [ReactiveFormsModule, MatCardModule, MatFormFieldModule, MatInputModule],
   templateUrl: './sub-form-with-control-inside.component.html',
   styleUrls: ['./sub-form-with-control-inside.component.scss'],
 })

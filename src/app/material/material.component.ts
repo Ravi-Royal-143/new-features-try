@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
@@ -14,7 +13,7 @@ import {
 
 @Component({
   selector: 'app-material',
-  imports: [CommonModule, MatCardModule, RouterModule, MatIconModule],
+  imports: [MatCardModule, RouterModule, MatIconModule],
   templateUrl: './material.component.html',
   styleUrls: ['./material.component.scss'],
 })

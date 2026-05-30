@@ -1,6 +1,8 @@
 <!-- eslint-disable @angular-eslint/template/click-events-have-key-events -->
 <!-- eslint-disable @angular-eslint/template/interactive-supports-focus -->
-<button mat-stroked-button class="top-node" (click)="openDialog()" *ngIf="isTop">
-  Add Main Node
-</button>
-<i class="material-icons add-btn" *ngIf="!isTop" (click)="openDialog()"> add </i>
+@if (isTop) {
+  <button mat-stroked-button class="top-node" (click)="openDialog()">Add Main Node</button>
+}
+@if (!isTop) {
+  <i class="material-icons add-btn" (click)="openDialog()"> add </i>
+}

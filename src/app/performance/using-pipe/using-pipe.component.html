@@ -23,11 +23,15 @@
   <div class="p-2">
     <mat-card>
       <strong>From Local Function:</strong>
-      <span *ngFor="let data of arrayDatas"> {{ getLabelLocalFn(data) }} </span>
+      @for (data of arrayDatas; track data) {
+        <span> {{ getLabelLocalFn(data) }} </span>
+      }
     </mat-card>
   </div>
   <div class="p-2">
     <strong>From Pipe:</strong>
-    <span *ngFor="let data of arrayDatas"> {{ getLabel | getLabelPipe: data }} </span>
+    @for (data of arrayDatas; track data) {
+      <span> {{ getLabel | getLabelPipe: data }} </span>
+    }
   </div>
 </mat-card>

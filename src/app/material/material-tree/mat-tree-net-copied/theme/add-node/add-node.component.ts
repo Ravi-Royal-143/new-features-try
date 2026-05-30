@@ -1,5 +1,4 @@
 import { CdkScrollable } from '@angular/cdk/scrolling';
-import { NgIf } from '@angular/common';
 import { Component, Inject, Output, EventEmitter, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButton } from '@angular/material/button';
@@ -21,7 +20,7 @@ import { TreeData, DialogData } from '../../../mat-tree-net-copied/service/tree-
   standalone: true,
   templateUrl: './add-node.component.html',
   styleUrls: ['./add-node.component.css'],
-  imports: [NgIf, MatButton],
+  imports: [MatButton],
 })
 export class AddNodeComponent {
   @Input() isTop: boolean;

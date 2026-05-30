@@ -47,18 +47,19 @@
     </mat-tree>
 
     <ng-template #editContainer let-nodeData>
-      <ng-container *ngIf="nodeData?.edit; else showContent">
+      @if (nodeData?.edit) {
         <mat-form-field appearance="outline" class="w-64">
           <mat-label>Node name</mat-label>
-          <input matInput *ngIf="nodeData?.edit" [(ngModel)]="nodeData.name" />
+          @if (nodeData?.edit) {
+            <input matInput [(ngModel)]="nodeData.name" />
+          }
         </mat-form-field>
-      </ng-container>
-      <ng-template #showContent>
+      } @else {
         <span>
           {{ nodeData.name }}
           <mat-icon (click)="deleteNode(nodeData)">delete</mat-icon>
         </span>
-      </ng-template>
+      }
     </ng-template>
   </div>
 </mat-card>
