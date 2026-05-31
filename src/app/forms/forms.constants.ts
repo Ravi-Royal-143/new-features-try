@@ -8,4 +8,5 @@ export const FORMS_SECTION_DESCRIPTION = 'Experiment with modern Angular forms p
 export const FORMS_NAVIGATION_LINKS: NavigationLink[] = [
   { label: 'FormRecord', link: ROUTES.forms.formRecord },
   { label: 'FormGroup Directive', link: ROUTES.forms.formGroupDirective },
+  { label: 'Signal Form', link: ROUTES.forms.signalForm },
 ];

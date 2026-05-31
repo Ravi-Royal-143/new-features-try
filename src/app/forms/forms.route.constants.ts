@@ -2,4 +2,5 @@ export const FORMS_ROUTES_DEF = {
   home: '',
   formRecord: 'form-record',
   formGroupDirective: 'form-group-directive',
+  signalForm: 'signal-form',
 } as const;

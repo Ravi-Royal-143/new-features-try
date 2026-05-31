@@ -1,0 +1,182 @@
+<div class="flex flex-col gap-8 p-6 max-w-3xl mx-auto font-sans">
+  <!-- Main Form Card -->
+  <mat-card
+    class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl rounded-2xl p-6 text-slate-900 dark:text-slate-100 transition-all duration-300"
+  >
+    <mat-card-header class="flex items-center gap-4">
+      <div
+        mat-card-avatar
+        class="bg-gradient-to-br from-indigo-500 to-purple-500 text-white flex items-center justify-center rounded-full w-10 h-10 shadow-md"
+      >
+        <mat-icon class="text-white">insights</mat-icon>
+      </div>
+      <div>
+        <mat-card-title
+          class="text-2xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400 bg-clip-text text-transparent"
+        >
+          Angular Signal Forms Demo
+        </mat-card-title>
+        <mat-card-subtitle class="text-slate-600 dark:text-slate-400 text-xs">
+          Reactivity & Form Binding powered by Angular Signals
+        </mat-card-subtitle>
+      </div>
+    </mat-card-header>
+
+    <mat-card-content class="flex flex-col gap-6 mt-6">
+      <!-- Input Section -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <!-- First Name -->
+        <div class="flex flex-col w-full">
+          <mat-form-field appearance="outline" class="w-full" subscriptSizing="dynamic">
+            <mat-label>First Name</mat-label>
+            <mat-icon matPrefix class="text-slate-400 dark:text-slate-500 mr-2">person</mat-icon>
+            <input
+              matInput
+              type="text"
+              [formField]="personalDetailForm.firstName"
+              placeholder="Enter first name"
+            />
+          </mat-form-field>
+          @let firstName = personalDetailForm.firstName;
+          @if (firstName().touched() && firstName().invalid()) {
+            @for (err of firstName().errors(); track err.message) {
+              <div class="text-red-500 dark:text-red-400 text-xs mt-1 ml-3 font-medium">
+                {{ err.message }}
+              </div>
+            }
+          }
+        </div>
+
+        <!-- Last Name -->
+        <div class="flex flex-col w-full">
+          <mat-form-field appearance="outline" class="w-full" subscriptSizing="dynamic">
+            <mat-label>Last Name</mat-label>
+            <mat-icon matPrefix class="text-slate-400 dark:text-slate-500 mr-2"
+              >person_outline</mat-icon
+            >
+            <input
+              matInput
+              type="text"
+              [formField]="personalDetailForm.lastName"
+              placeholder="Enter last name"
+            />
+          </mat-form-field>
+          @let lastName = personalDetailForm.lastName;
+          @if (lastName().touched() && lastName().invalid()) {
+            @for (err of lastName().errors(); track err.message) {
+              <div class="text-red-500 dark:text-red-400 text-xs mt-1 ml-3 font-medium">
+                {{ err.message }}
+              </div>
+            }
+          }
+        </div>
+
+        <!-- Email Address -->
+        <div class="flex flex-col w-full">
+          <mat-form-field appearance="outline" class="w-full" subscriptSizing="dynamic">
+            <mat-label>Email Address</mat-label>
+            <mat-icon matPrefix class="text-slate-400 dark:text-slate-500 mr-2">email</mat-icon>
+            <input
+              matInput
+              type="email"
+              [formField]="personalDetailForm.email"
+              placeholder="Enter email address"
+            />
+          </mat-form-field>
+          @let emailCtrl = personalDetailForm.email;
+          @if (emailCtrl().touched() && emailCtrl().invalid()) {
+            @for (err of emailCtrl().errors(); track err.message) {
+              <div class="text-red-500 dark:text-red-400 text-xs mt-1 ml-3 font-medium">
+                {{ err.message }}
+              </div>
+            }
+          }
+        </div>
+
+        <div class="flex flex-col w-full">
+          <mat-form-field appearance="outline" class="w-full" subscriptSizing="dynamic">
+            <mat-label>Age</mat-label>
+            <mat-icon matPrefix class="text-slate-400 dark:text-slate-500 mr-2">person</mat-icon>
+            <input
+              matInput
+              type="number"
+              [formField]="personalDetailForm.age"
+              placeholder="Enter age"
+            />
+          </mat-form-field>
+          @let ageCtrl = personalDetailForm.age;
+          @if (ageCtrl().touched() && ageCtrl().invalid()) {
+            @for (err of ageCtrl().errors(); track err.message) {
+              <div class="text-red-500 dark:text-red-400 text-xs mt-1 ml-3 font-medium">
+                {{ err.message }}
+              </div>
+            }
+          }
+        </div>
+      </div>
+
+      <!-- Quick Action Buttons -->
+      <div class="flex flex-wrap gap-3">
+        <button
+          mat-flat-button
+          color="primary"
+          class="rounded-xl font-semibold transition-all duration-200"
+          (click)="resetForm()"
+          [disabled]="personalDetailForm().pending()"
+        >
+          <mat-icon class="mr-1">restart_alt</mat-icon> Reset Form
+        </button>
+        <button
+          mat-stroked-button
+          class="rounded-xl font-semibold transition-all duration-200 border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800"
+          (click)="loadDemo('Jane', 'Doe', 'jane.doe@example.com', 20)"
+          [disabled]="personalDetailForm().pending()"
+        >
+          <mat-icon class="mr-1">face</mat-icon> Load Jane
+        </button>
+        <button
+          mat-stroked-button
+          class="rounded-xl font-semibold transition-all duration-200 border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800"
+          (click)="loadDemo('John', 'Smith', 'john.smith@example.com', 30)"
+          [disabled]="personalDetailForm().pending()"
+        >
+          <mat-icon class="mr-1">face_5</mat-icon> Load John
+        </button>
+      </div>
+      <div>
+        @if (personalDetailForm().pending()) {
+          Checking in progress...
+        }
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <!-- Live Output Card -->
+  <mat-card
+    class="bg-slate-50 dark:bg-[#0b0f19] border border-dashed border-indigo-500/20 rounded-2xl p-6 text-slate-800 dark:text-slate-200"
+  >
+    <mat-card-header>
+      <mat-card-title
+        class="flex items-center gap-3 text-base font-semibold text-indigo-600 dark:text-indigo-400"
+      >
+        <span class="relative flex h-2 w-2">
+          <span
+            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"
+          ></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+        </span>
+        Live Signals State
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="mt-4">
+      <pre
+        class="bg-white dark:bg-black/30 rounded-lg p-4 overflow-x-auto border border-slate-200 dark:border-white/5"
+      ><code class="font-mono text-emerald-800 dark:text-emerald-400 text-sm">{{ personalDetails() | json }}</code></pre>
+      <pre>Errors: {{ personalDetailForm().errors() | json }}</pre>
+      <pre>Value: {{ personalDetailForm().value() | json }}</pre>
+      <pre>Touched: {{ personalDetailForm().touched() }}</pre>
+      <pre>Dirty: {{ personalDetailForm().dirty() }}</pre>
+      <pre>Valid: {{ personalDetailForm().valid() }}</pre>
+    </mat-card-content>
+  </mat-card>
+</div>

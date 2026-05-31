@@ -25,6 +25,11 @@ export const FORMS_ROUTES: Routes = [
         loadComponent: () =>
           import('./main-form/main-form.component').then((c) => c.MainFormComponent),
       },
+      {
+        path: ROUTE.forms.signalForm,
+        loadComponent: () =>
+          import('./signal-form/signal-form.component').then((c) => c.SignalFormComponent),
+      },
     ],
   },
 ];
