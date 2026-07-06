@@ -7,7 +7,7 @@ import { SubFormWithControlInsideComponent } from './sub-form-with-control-insid
 import { SubReusableFormComponent } from './sub-reusable-form/sub-reusable-form.component';
 
 @Component({
-  selector: 'app-main-form',
+  selector: 'app-form-group-directive',
   imports: [
     ReactiveFormsModule,
     MatButtonModule,
@@ -15,10 +15,10 @@ import { SubReusableFormComponent } from './sub-reusable-form/sub-reusable-form.
     SubReusableFormComponent,
     SubFormWithControlInsideComponent,
   ],
-  templateUrl: './main-form.component.html',
-  styleUrls: ['./main-form.component.scss'],
+  templateUrl: './form-group-directive.component.html',
+  styleUrls: ['./form-group-directive.component.scss'],
 })
-export class MainFormComponent {
+export class FormGroupDirectiveComponent {
   form = new FormGroup({
     address: new FormGroup({
       name: new FormControl(''),
@@ -28,7 +28,7 @@ export class MainFormComponent {
 
   print() {
     console.log(
-      '🚀 ~ file: main-form.component.ts ~ line 16 ~ MainFormComponent ~ form',
+      '🚀 ~ file: form-group-directive.component.ts ~ line 16 ~ FormGroupDirectiveComponent ~ form',
       this.form,
     );
   }

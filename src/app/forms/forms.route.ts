@@ -23,7 +23,9 @@ export const FORMS_ROUTES: Routes = [
       {
         path: ROUTE.forms.formGroupDirective,
         loadComponent: () =>
-          import('./main-form/main-form.component').then((c) => c.MainFormComponent),
+          import('./form-group-directive/form-group-directive.component').then(
+            (c) => c.FormGroupDirectiveComponent,
+          ),
       },
       {
         path: ROUTE.forms.signalForm,

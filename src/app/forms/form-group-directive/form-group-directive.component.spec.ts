@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
-import { MainFormComponent } from './main-form.component';
+import { FormGroupDirectiveComponent } from './form-group-directive.component';
 
-describe('MainFormComponent', () => {
-  let component: MainFormComponent;
-  let fixture: ComponentFixture<MainFormComponent>;
+describe('FormGroupDirectiveComponent', () => {
+  let component: FormGroupDirectiveComponent;
+  let fixture: ComponentFixture<FormGroupDirectiveComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [MainFormComponent, NoopAnimationsModule],
+      imports: [FormGroupDirectiveComponent, NoopAnimationsModule],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(MainFormComponent);
+    fixture = TestBed.createComponent(FormGroupDirectiveComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
