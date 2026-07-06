@@ -27,8 +27,8 @@ export class UsingPipeComponent {
     return data.label;
   }
 
-  test() {
-    console.log('test', this.insideFun);
+  pushData() {
+    console.log('How many times getLabelLocalFn was called Previously:', this.insideFun);
     this.arrayDatas.push(this.objCreation(this.arrayDatas.length));
   }
 

@@ -17,16 +17,18 @@
     }
   </div>
   <div class="p-2">
-    <button mat-raised-button color="primary" (click)="test()">Check function call count</button>
+    <button mat-raised-button color="primary" (click)="pushData()">
+      Check function call count
+    </button>
   </div>
   <br />
   <div class="p-2">
-    <mat-card>
-      <strong>From Local Function:</strong>
-      @for (data of arrayDatas; track data) {
-        <span> {{ getLabelLocalFn(data) }} </span>
-      }
-    </mat-card>
+    <!-- <mat-card> -->
+    <strong>From Local Function:</strong>
+    @for (data of arrayDatas; track data) {
+      <span class="inline"> {{ getLabelLocalFn(data) }} </span>
+    }
+    <!-- </mat-card> -->
   </div>
   <div class="p-2">
     <strong>From Pipe:</strong>
